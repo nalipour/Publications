@@ -111,8 +111,8 @@
 
 
 
-
-
+\usepackage{xspace}
+\usepackage{units_definitions}
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
@@ -159,7 +159,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage{amsmath}
+\usepackage{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics.
 %
@@ -327,8 +327,7 @@
 % use a multiple column layout for up to three different
 % affiliations
 \author{\IEEEauthorblockN{Niloufar Alipour Tehrani}
-\IEEEauthorblockA{CERN \\
-Geneva, Switzerland\\
+\IEEEauthorblockA{CERN, Geneva, Switzerland\\
 Email: niloufar.alipour.tehrani@cern.ch}
 %\and
 %\IEEEauthorblockN{Homer Simpson}
@@ -374,7 +373,7 @@ Email: niloufar.alipour.tehrani@cern.ch}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-The physics aims at the electron positron option for  the Future Circular Collider (FCCee) impose high precision requirements on the vertex and tracking detectors.  The detector has also to match the experimental conditions such as the collisions rate and the presence of beam-induced backgrounds.
+The physics aims at the electron positron option for  the Future Circular Collider (FCC-ee) impose high precision requirements on the vertex and tracking detectors.  The detector has also to match the experimental conditions such as the collisions rate and the presence of beam-induced backgrounds.
 A light weight tracking detector is under investigation for the IDEA (International Detector for Electron-Positron Accelerator) detector concept and consists of a drift chamber. Simulation studies of the drift chamber using the FCCSW (FCC software) are presented. Full simulations are used to study the effect of beam-induced backgrounds on such detector.
 
 \end{abstract}
@@ -397,45 +396,37 @@ A light weight tracking detector is under investigation for the IDEA (Internatio
 
 
 \section{Introduction}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill August 26, 2015
-
-\subsection{Subsection Heading Here}
-Subsection text here.
+FCC-ee, as a high-luminosity circular electron-positron collider, with center-of-mass energies from $91.2\,\gev$ to 
+$365\,\gev$.
 
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+\section{Drift chamber}
+\section{Simulation with the FCC Software}
 
-
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{figures/FCCeeIDEA_IR}
-\caption{Simulation results for the network.}
+\caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
 \label{fig_sim}
 \end{figure}
+
+
+\subsection{Geometry description with DD4hep}
+\subsection{Segmentation}
+\subsection{\textsc{Geant4} simulation}
+\subsection{Digitization}
+
+\section{Impact of beam-induced backgrounds}
+\section{Conclusion}
+% conference papers do not normally have an appendix
+
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+
+%The authors would like to thank...
+
+
 
 % Note that the IEEE typically puts floats only at the top, even when this
 % results in a large percentage of a column being occupied by floats.
@@ -511,20 +502,6 @@ Subsubsection text here.
 
 
 
-\section{Conclusion}
-The conclusion goes here.
-
-
-
-
-% conference papers do not normally have an appendix
-
-
-% use section* for acknowledgment
-\section*{Acknowledgment}
-
-
-The authors would like to thank...
 
 
 
