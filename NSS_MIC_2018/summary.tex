@@ -21,7 +21,7 @@
 %% Legal Notice:
 %% This code is offered as-is without any warranty either expressed or
 %% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% FITNESS FOR A PARTICULAR PURPOSE!
 %% User assumes all risk.
 %% In no event shall the IEEE or any contributor to this code be liable for
 %% any damages or losses, including, but not limited to, incidental,
@@ -115,7 +115,8 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in table
 \usepackage{xspace}
 \usepackage{units_definitions}
-\usepackage{tikz} 
+\usepackage{tikz}
+\usepackage{subfig}
 
 % *** MATH PACKAGES ***
 %
@@ -303,10 +304,10 @@ Email: niloufar.alipour.tehrani@cern.ch}
 
 % for over three affiliations, or if they all won't fit within the width
 % of the page, use this alternative format:
-% 
+%
 %\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
 %Homer Simpson\IEEEauthorrefmark{2},
-%James Kirk\IEEEauthorrefmark{3}, 
+%James Kirk\IEEEauthorrefmark{3},
 %Montgomery Scott\IEEEauthorrefmark{3} and
 %Eldon Tyrell\IEEEauthorrefmark{4}}
 %\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
@@ -343,7 +344,7 @@ A light weight tracking detector is under investigation for the IDEA (Internatio
 
 
 \section{Introduction}
-The FCC-ee high-luminosity circular electron-positron collider, with center-of-mass energies from $91.2\,\gev$ to 
+The FCC-ee high-luminosity circular electron-positron collider, with center-of-mass energies from $91.2\,\gev$ to
 $365\,\gev$, allows for high-precision measurements of the properties of the Z, the W, the top quark and the Higgs boson. As a predecessor of a new $100\,\tev$ proton-proton collider, the FCC-ee collider is foreseen to be placed in a 100~km tunnel. The IDEA detector, one of the two detector concepts under development for FCC-ee, has demanding requirements to match the experimental conditions. Its main components consist of: an ultra-light silicon-based vertex detector, an ultra-light drift chamber for track reconstruction and particle identification, a double-readout calorimeter, a 2~T solenoid magnetic field and an instrumented return yoke. The drift chamber is being investigated using \textsc{Geant4}-based simulations. Its performance and the effect of beam-induced backgrounds are presented here-below.
 
 
@@ -359,7 +360,7 @@ The parameters of the drift chamber for the IDEA detector is summarized in \cref
 	% than the plain LaTeX2e tabular which is used here.
 	\begin{tabular}{l l}
 		\toprule
-		Length & 4500~mm \\ 
+		Length & 4500~mm \\
         Inner radius & 345~mm \\
         Outer radius & 2000~mm\\
         Number of sensitive wires & 56448 \\
@@ -381,7 +382,7 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 	    	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
 	  	}
   	}
-\caption{FCCSW simulation chain.}
+\caption{The FCCSW simulation chain.}
 \label{simu_chain}
 \end{figure}
 
@@ -389,7 +390,7 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 
 
 \subsection{Geometry description with DD4hep}
-First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim} and includes the beam pipe, the luminosity calorimeter, the vertex detector and the drift chamber.
+First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim} and includes the beam pipe, the luminosity calorimeter, the vertex detector and the drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes into account for their positions.
 
 \begin{figure}[!t]
 \centering
@@ -397,27 +398,27 @@ First, the geometry of the detector is described using the DD4hep simulation fra
       \node[anchor=south west,inner sep=0] (image) at
       (0,0){\includegraphics[width=2.5in]{figures/FCCeeIDEA_IR}};
       \begin{scope}[x={(image.south east)},y={(image.north west)}]
-      
+
 %		\draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
 %        \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
 %        \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10)
 %         {0.\y}; }
-%        
+%
         \draw[->, thick](0.2, 0.7) -- (0.4, 0.7);
-		\node[left] at (0.2, 0.7) {Drift chamber}; 
-		
+		\node[left] at (0.2, 0.7) {Drift chamber};
+
 		\draw[->, thick](-0.1, 0.25) -- (0., 0.25);
-		\node[left] at (-0.1, 0.25) {Beam pipe}; 
-		
+		\node[left] at (-0.1, 0.25) {Beam pipe};
+
 		\draw[->, thick](0.1, 0.4) -- (0.2, 0.4);
 		\node[left] at (0.1, 0.4) {Solenoid shielding};
-		
+
 		\draw[->, thick](0.6, 0.05) -- (0.48, 0.4);
 		\node[below] at (0.6, 0.05) {Luminosity calorimeter};
 
 		\draw[->, thick](0.8, 0.2) -- (0.58, 0.5);
 		\node[below] at (0.8, 0.2) {Vertex detector};
-        
+
 	\end{scope}
     \end{tikzpicture}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
@@ -426,22 +427,22 @@ First, the geometry of the detector is described using the DD4hep simulation fra
 
 \subsection{Segmentation}
 
+The segmentation of the sensitive gas detector contains the information on the positions of the wires in the detector. The segmentation for the first layer of the drift chamber is shown in \cref{fig_segmentation_first_case}. The total number of wires as a function of the polar angle $\theta$ is illustrated in \cref{fig_segmentation_second_case}.
+
 \begin{figure}[!t]
 \centering
-\includegraphics[width=2.5in]{figures/allHits}
-\caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
+\subfloat[]{\includegraphics[width=1.5in]{figures/allHits}%
+\label{fig_segmentation_first_case}}
+\hfil
+\subfloat[]{\includegraphics[width=1.5in]{figures/theta_nbHits_DCH}%
+\label{fig_segmentation_second_case}}
+\caption{(a) shows the segmentation of the first layer of the drift chamber. (b) shows the total number of wires as a function of the polar angle $\theta$.}
 \label{fig_segmentation}
 \end{figure}
 
-\subsection{\textsc{Geant4} simulation}
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{figures/theta_nbHits_DCH}
-\caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
-\label{fig_nbsensitivelayers}
-\end{figure}
 
-\subsection{Digitization}
+\subsection{\textsc{Geant4} simulation and digitization}
+\textsc{Geant4} simulates the passage of particles through matter. For the drift chamber simulation, a step size of 2~mm is chosen in order to step trough the gas volume and calculate the energy deposited. The ionization charge is then drifted to the nearest wire. This allows for calculating the drift time and therefore the signal in the wires. Once the contribution from each \textsc{Geant4} step is calculated, the digitization step regroups the energy deposited with a drift time smaller than the maximum drift time in the cell.
 
 \section{Impact of beam-induced backgrounds}
 \begin{figure}[!t]
@@ -486,7 +487,7 @@ The authors would like to thank...
 % The subfigure \label commands are set within each subfloat command,
 % and the \label for the overall figure must come after \caption.
 % \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
+% Watch out that the combined width of all the subfigures on a
 % line do not exceed the text width or a line break will occur.
 %
 %\begin{figure*}[!t]
@@ -543,7 +544,7 @@ The authors would like to thank...
 % in-text middle ("here") positioning is typically not used, but it
 % is allowed and encouraged for Computer Society conferences (but
 % not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
+% top floats exclusively.
 % Note that, LaTeX2e, unlike IEEE journals/conferences, places
 % footnotes above bottom floats. This can be corrected via the
 % \fnbelowfloat command of the stfloats package.
@@ -594,5 +595,3 @@ The authors would like to thank...
 
 % that's all folks
 \end{document}
-
-
