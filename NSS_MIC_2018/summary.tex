@@ -108,53 +108,13 @@
 % http://www.ctan.org/pkg/cite
 % The documentation is contained in the cite.sty file itself.
 
-
-
-
+\usepackage[pdftex]{graphicx}
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+\usepackage{cleveref}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in table
 \usepackage{xspace}
 \usepackage{units_definitions}
-% *** GRAPHICS RELATED PACKAGES ***
-%
-\ifCLASSINFOpdf
-   \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
-\else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
-  % \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
-\fi
-% graphicx was written by David Carlisle and Sebastian Rahtz. It is
-% required if you want graphics, photos, etc. graphicx.sty is already
-% installed on most LaTeX systems. The latest version and documentation
-% can be obtained at: 
-% http://www.ctan.org/pkg/graphicx
-% Another good source of documentation is "Using Imported Graphics in
-% LaTeX2e" by Keith Reckdahl which can be found at:
-% http://www.ctan.org/pkg/epslatex
-%
-% latex, and pdflatex in dvi mode, support graphics in encapsulated
-% postscript (.eps) format. pdflatex in pdf mode supports graphics
-% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
-% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
-% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
-% which can result in "jaggedy"/blurry rendering of lines and letters as
-% well as large increases in file sizes.
-%
-% You can find documentation about the pdfTeX application at:
-% http://www.tug.org/applications/pdftex
-
-
-
 
 
 % *** MATH PACKAGES ***
@@ -378,19 +338,6 @@ A light weight tracking detector is under investigation for the IDEA (Internatio
 
 \end{abstract}
 
-% no keywords
-
-
-
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
 
@@ -401,7 +348,48 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 
 
 \section{Drift chamber}
+The parameters of the drift chamber for the IDEA detector is summarized in \cref{driftChamberParams}. The Isobutane gas is foreseen to be used. The time-difference method is combined with the stereo angle of the sensitive wires are used to improve the resolutions of the detector.
+
+\begin{table}[!t]
+	\renewcommand{\arraystretch}{1.3}
+	\caption{Parameters of the drift chamber for the IDEA detector}
+	\label{driftChamberParams}
+	\centering
+	% Some packages, such as MDW tools, offer better commands for making tables
+	% than the plain LaTeX2e tabular which is used here.
+	\begin{tabular}{l l}
+		\toprule
+		Length & 4500~mm \\ 
+        Inner radius & 345~mm \\
+        Outer radius & 2000~mm\\
+        Number of sensitive wires & 56448 \\
+        Single cell resolution & 0.1~mm \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 \section{Simulation with the FCC Software}
+
+The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experiments. It is based on the Gaudi software framework~\cite{Gaudi} for parallel data processing, \textsc{Geant4} simulation toolkit~\cite{Geant4} and the DD4hep detector description toolkit for high energy physics~\cite{DD4hep}. The FCCSW simulation pipeline is summarized in \cref{simu_chain} and described here-below.
+
+\begin{figure}[!t]
+\centering
+	\smartdiagramset{back arrow disabled=true}
+	\scalebox{0.8}{
+	  	\smartdiagram[flow diagram:horizontal]
+	  	{%
+	    	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
+	  	}
+  	}
+\caption{FCCSW simulation chain.}
+\label{simu_chain}
+\end{figure}
+
+
+
+
+\subsection{Geometry description with DD4hep}
+First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim} and includes the beampipe, the luminosity calorimeter, the vertex detector and the drift chamber.
 
 \begin{figure}[!t]
 \centering
@@ -410,15 +398,13 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 \label{fig_sim}
 \end{figure}
 
-
-\subsection{Geometry description with DD4hep}
 \subsection{Segmentation}
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{figures/allHits}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
-\label{fig_sim}
+\label{fig_segmentation}
 \end{figure}
 
 \subsection{\textsc{Geant4} simulation}
@@ -426,7 +412,7 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 \centering
 \includegraphics[width=2.5in]{figures/theta_nbHits_DCH}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
-\label{fig_sim}
+\label{fig_nbsensitivelayers}
 \end{figure}
 
 \subsection{Digitization}
@@ -436,14 +422,14 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 \centering
 \includegraphics[width=2.5in]{figures/pairs_R_Z.png}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
-\label{fig_sim}
+\label{fig_pairbcg}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{figures/layerR_vs_phi}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
-\label{fig_sim}
+\label{fig_simhits}
 \end{figure}
 
 
@@ -451,7 +437,7 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 \centering
 \includegraphics[width=2.5in]{figures/layerR_vs_wires_percent}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
-\label{fig_sim}
+\label{fig_simhitspercent}
 \end{figure}
 
 \section{Conclusion}
@@ -461,7 +447,7 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 % use section* for acknowledgment
 \section*{Acknowledgment}
 
-%The authors would like to thank...
+The authors would like to thank...
 
 
 
@@ -559,20 +545,23 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 % http://mirror.ctan.org/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+\bibliography{ref.bib}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
-\end{thebibliography}
+
+%\begin{thebibliography}{1}
+
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+%
+%\end{thebibliography}
 
 
 
