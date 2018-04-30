@@ -344,7 +344,7 @@ A light weight tracking detector is under investigation for the IDEA (Internatio
 
 
 \section{Introduction}
-The FCC-ee high-luminosity circular electron-positron collider, with center-of-mass energies from $91.2\,\gev$ to
+The FCC-ee high-luminosity circular electron-positron collider, with center-of-mass energies $\sqrt{s}$ from $91.2\,\gev$ to
 $365\,\gev$, allows for high-precision measurements of the properties of the Z, the W, the top quark and the Higgs boson. As a predecessor of a new $100\,\tev$ proton-proton collider, the FCC-ee collider is foreseen to be placed in a 100~km tunnel. The IDEA detector, one of the two detector concepts under development for FCC-ee, has demanding requirements to match the experimental conditions. Its main components consist of: an ultra-light silicon-based vertex detector, an ultra-light drift chamber for track reconstruction and particle identification, a double-readout calorimeter, a 2~T solenoid magnetic field and an instrumented return yoke. The drift chamber is being investigated using \textsc{Geant4}-based simulations. Its performance and the effect of beam-induced backgrounds are presented here-below.
 
 
@@ -445,30 +445,36 @@ The segmentation of the sensitive gas detector contains the information on the p
 \textsc{Geant4} simulates the passage of particles through matter. For the drift chamber simulation, a step size of 2~mm is chosen in order to step trough the gas volume and calculate the energy deposited. The ionization charge is then drifted to the nearest wire. This allows for calculating the drift time and therefore the signal in the wires. Once the contribution from each \textsc{Geant4} step is calculated, the digitization step regroups the energy deposited with a drift time smaller than the maximum drift time in the cell.
 
 \section{Impact of beam-induced backgrounds}
+One of the main sources of background at the FCC-ee experiments is generated from the strong electromagnetic force from the electron and positron bunches in the field of the opposite beam. This leads to the production of Beamstrahlung photons. The interactions of Beamstrahlung photons generate incoherent lepton pairs at low polar angles and mostly contained in the forward direction as shown in~\cref{fig_pairbcg}. The \textsc{GUINEA-PIG}~\cite{Schulte:382453} event generator has been used to generate the incoherent $e^+e^-$ background particles at a $\sqrt{s}$ of $365\,\gev$~\cite{Voutsinas:2017eca} and their impact on the drift chamber is studied below.
+
+
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{figures/pairs_R_Z.png}
-\caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
+\caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field.}
 \label{fig_pairbcg}
 \end{figure}
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{figures/layerR_vs_phi}
-\caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
-\label{fig_simhits}
-\end{figure}
+The occupancy due to $e^+e^-$ incoherent pairs in the drift chamber is estimated to $\sim2.85\%$ (averaged over 20 bunch crossings). In fact, the produced incoherent pairs have a low polar angle and only few of them reach the drift chamber. Most of the hits observed are due to the scattering of the pairs by interacting with the elements in the interaction region.
 
+% \begin{figure}[!t]
+% \centering
+% \includegraphics[width=2.5in]{figures/layerR_vs_phi}
+% \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
+% \label{fig_simhits}
+% \end{figure}
+
+The occupancy of the drift chamber as a function of its radius is shown in~\cref{fig_simhitspercent}. The overall occupancy due to this background remains low and does not pose problems for the reconstruction of the tracks using the drift chamber.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=2.5in]{figures/layerR_vs_wires_percent}
-\caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
+\caption{The percentage of wires hit due to $e^+e^-$ background as a function of the layer radius.}
 \label{fig_simhitspercent}
 \end{figure}
 
 \section{Conclusion}
-% conference papers do not normally have an appendix
+The drift chamber for the IDEA detector concept has been investigated in full simulations using the FCCSW. The full simulation chain has been implemented and validated using this common software and the impact of one of the most important beam-induced backgrounds due to the incoherent $e^+e^-$ pairs has been investigated in simulations. The overall impact remains low and does not pose problems for the track reconstruction with this detector. 
 
 
 % use section* for acknowledgment
