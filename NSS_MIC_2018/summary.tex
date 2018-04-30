@@ -115,7 +115,7 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in table
 \usepackage{xspace}
 \usepackage{units_definitions}
-
+\usepackage{tikz} 
 
 % *** MATH PACKAGES ***
 %
@@ -389,11 +389,37 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 
 
 \subsection{Geometry description with DD4hep}
-First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim} and includes the beampipe, the luminosity calorimeter, the vertex detector and the drift chamber.
+First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim} and includes the beam pipe, the luminosity calorimeter, the vertex detector and the drift chamber.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=2.5in]{figures/FCCeeIDEA_IR}
+    \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at
+      (0,0){\includegraphics[width=2.5in]{figures/FCCeeIDEA_IR}};
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]
+      
+%		\draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
+%        \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+%        \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10)
+%         {0.\y}; }
+%        
+        \draw[->, thick](0.2, 0.7) -- (0.4, 0.7);
+		\node[left] at (0.2, 0.7) {Drift chamber}; 
+		
+		\draw[->, thick](-0.1, 0.25) -- (0., 0.25);
+		\node[left] at (-0.1, 0.25) {Beam pipe}; 
+		
+		\draw[->, thick](0.1, 0.4) -- (0.2, 0.4);
+		\node[left] at (0.1, 0.4) {Solenoid shielding};
+		
+		\draw[->, thick](0.6, 0.05) -- (0.48, 0.4);
+		\node[below] at (0.6, 0.05) {Luminosity calorimeter};
+
+		\draw[->, thick](0.8, 0.2) -- (0.58, 0.5);
+		\node[below] at (0.8, 0.2) {Vertex detector};
+        
+	\end{scope}
+    \end{tikzpicture}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
 \label{fig_sim}
 \end{figure}
