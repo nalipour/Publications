@@ -113,7 +113,7 @@
 \usesmartdiagramlibrary{additions}
 \usepackage{cleveref}
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in table
-\usepackage{xspace}
+\usepackage{xspace,upgreek}
 \usepackage{units_definitions}
 \usepackage{tikz}
 \usepackage{subfig}
@@ -281,7 +281,9 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Design of a drift chamber for an experiment at FCC-ee\\ for IEEE Conferences}
+\title{Design of a drift chamber for an experiment at FCC-ee\\
+2018 IEEE Nuclear Science Symposium and Medical Imaging Conference
+}
 
 
 % author names and affiliations
@@ -334,8 +336,8 @@ Email: niloufar.alipour.tehrani@cern.ch}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-The physics aims at the electron positron option for  the Future Circular Collider (FCC-ee) impose high precision requirements on the vertex and tracking detectors.  The detector has also to match the experimental conditions such as the collisions rate and the presence of beam-induced backgrounds.
-A light weight tracking detector is under investigation for the IDEA (International Detector for Electron-Positron Accelerator) detector concept and consists of a drift chamber. Simulation studies of the drift chamber using the FCCSW (FCC software) are presented. Full simulations are used to study the effect of beam-induced backgrounds on such detector.
+The physics aims at the electron-positron option for  the Future Circular Collider FCC-ee, impose high precision requirements on the vertex and tracking detectors.  The detector has also to match the experimental conditions such as the collisions rate and the presence of beam-induced backgrounds.
+A light weight tracking detector is under investigation for the IDEA (International Detector for Electron-Positron Accelerator) detector concept and consists of a drift chamber. Simulation studies of the drift chamber using the FCCSW (FCC software) are presented. Full simulations are used to study the effect of beam-induced backgrounds on this detector.
 
 \end{abstract}
 
@@ -349,7 +351,7 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 
 
 \section{Drift chamber}
-The parameters of the drift chamber for the IDEA detector is summarized in \cref{driftChamberParams}. The Isobutane gas is foreseen to be used. The time-difference method is combined with the stereo angle of the sensitive wires are used to improve the resolutions of the detector.
+The parameters of the drift chamber for the IDEA detector is summarized in \cref{driftChamberParams}. A gas, composed of $90~\%$ of Helium and $10~\%$ of isobutane ($\text{C}_{4}\text{H}_{10}$), is foreseen to be used. The time-difference method combined with the stereo angle of the sensitive wires are used to achieve a spatial resolution of $100\,\micron$.
 
 \begin{table}[!t]
 	\renewcommand{\arraystretch}{1.3}
@@ -390,7 +392,7 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 
 
 \subsection{Geometry description with DD4hep}
-First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim} and includes the beam pipe, the luminosity calorimeter, the vertex detector and the drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes into account for their positions.
+First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim}. The interaction region consists of a beam pipe, a luminosity calorimeter, a vertex detector and a drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes into account for their positions.
 
 \begin{figure}[!t]
 \centering
@@ -474,7 +476,7 @@ The occupancy of the drift chamber as a function of its radius is shown in~\cref
 \end{figure}
 
 \section{Conclusion}
-The drift chamber for the IDEA detector concept has been investigated in full simulations using the FCCSW. The full simulation chain has been implemented and validated using this common software and the impact of one of the most important beam-induced backgrounds due to the incoherent $e^+e^-$ pairs has been investigated in simulations. The overall impact remains low and does not pose problems for the track reconstruction with this detector. 
+The drift chamber for the IDEA detector concept has been investigated in full simulations using the FCCSW. The full simulation chain has been implemented and validated using this common software and the impact of one of the most important beam-induced backgrounds due to the incoherent $e^+e^-$ pairs has been investigated in simulations. The overall impact remains low and does not pose problems for the track reconstruction with this detector.
 
 
 % use section* for acknowledgment
