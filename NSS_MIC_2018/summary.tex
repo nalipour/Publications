@@ -350,7 +350,7 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 
 
 \section{Drift chamber}
-The parameters of the drift chamber for the IDEA detector is summarized in \cref{driftChamberParams}. A gas, composed of $90~\%$ of Helium and $10~\%$ of isobutane ($\text{C}_{4}\text{H}_{10}$), is foreseen to be used. The time-difference method combined with the stereo angle of the sensitive wires are used to achieve a spatial resolution of $100\,\micron$.
+The parameters of the drift chamber for the IDEA detector is summarized in \cref{driftChamberParams}. A gas, composed of $90~\%$ of Helium and $10~\%$ of isobutane ($\text{C}_{4}\text{H}_{10}$), is foreseen to be used. Thanks to the average stereo angle of 0.1~radians, a longitudinal resolution of 1~mm can be achieved.
 
 \begin{table}[!t]
 	\renewcommand{\arraystretch}{1.3}
@@ -365,7 +365,7 @@ The parameters of the drift chamber for the IDEA detector is summarized in \cref
         Inner radius & 345~mm \\
         Outer radius & 2000~mm\\
         Number of sensitive wires & 56448 \\
-        Single cell resolution & 0.1~mm \\
+        Single cell resolution (transverse plane) & 0.1~mm \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -391,7 +391,7 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 
 
 \subsection{Geometry description with DD4hep}
-First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim}. The interaction region consists of a beam pipe, a luminosity calorimeter, a vertex detector and a drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes into account for their positions.
+First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim}. The interaction region consists of a beam pipe, a shielding solenoid, a luminosity calorimeter, a vertex detector and a drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes them into account.
 
 \begin{figure}[!t]
 \centering
@@ -437,7 +437,7 @@ The segmentation of the sensitive gas detector contains the information on the p
 \hfil
 \subfloat[]{\includegraphics[width=1.5in]{figures/theta_nbHits_DCH}%
 \label{fig_segmentation_second_case}}
-\caption{(a) shows the segmentation of the first layer of the drift chamber. (b) shows the total number of wires as a function of the polar angle $\theta$.}
+\caption{(a) shows the segmentation of the first layer of the drift chamber. (b) shows the total number of wires as a function of the polar angle $\theta$ (calculated using infinite momentum tracks from the origin).}
 \label{fig_segmentation}
 \end{figure}
 
@@ -456,7 +456,7 @@ One of the main sources of background at the FCC-ee experiments is generated fro
 \label{fig_pairbcg}
 \end{figure}
 
-The occupancy due to $e^+e^-$ incoherent pairs in the drift chamber is estimated to $\sim2.85\%$ (averaged over 100 bunch crossings). In fact, the produced incoherent pairs have a low polar angle and only few of them reach the drift chamber. Most of the hits observed are due to the scattering of the pairs by interacting with the elements in the interaction region.
+The occupancy due to $e^+e^-$ incoherent pairs in the drift chamber is estimated to $\sim2.85\%$ (averaged over 100 bunch crossings). In fact, the produced incoherent pairs have a low polar angle and only few of them reach the drift chamber. Most of the hits observed are due to the scattering of the $e^+e^-$ pairs by interacting with the elements in the interaction region.
 
 % \begin{figure}[!t]
 % \centering
