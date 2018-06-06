@@ -56,7 +56,7 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 \begin{figure}[!t]
 \centering
 	\smartdiagramset{back arrow disabled=true}
-	\scalebox{0.8}{
+	\scalebox{1}{
 	  	\smartdiagram[flow diagram:horizontal]
 	  	{%
 	    	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
@@ -74,7 +74,7 @@ First, the geometry of the detector is described using the DD4hep simulation fra
 \centering
     \begin{tikzpicture}
       \node[anchor=south west,inner sep=0] (image) at
-      (0,0){\includegraphics[width=2.5in]{figures/FCCeeIDEA_IR}};
+      (0,0){\includegraphics[width=0.8\textwidth]{figures/FCCeeIDEA_IR}};
       \begin{scope}[x={(image.south east)},y={(image.north west)}]
 
 %		\draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
@@ -109,10 +109,10 @@ The segmentation of the sensitive gas detector contains the information on the p
 
 \begin{figure}[!t]
 \centering
-\subfloat[]{\includegraphics[width=1.5in]{figures/allHits}%
+\subfloat[]{\includegraphics[width=2in]{figures/allHits}%
 \label{fig_segmentation_first_case}}
 \hfil
-\subfloat[]{\includegraphics[width=1.5in]{figures/theta_nbHits_DCH}%
+\subfloat[]{\includegraphics[width=2.5in]{figures/theta_nbHits_DCH}%
 \label{fig_segmentation_second_case}}
 \caption{(a) shows the segmentation of the first layer of the drift chamber. (b) shows the total number of wires as a function of the polar angle $\theta$ (calculated using infinite momentum tracks from the origin).}
 \label{fig_segmentation}
@@ -128,8 +128,8 @@ One of the main sources of background at the FCC-ee experiments is generated fro
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=2.5in]{figures/pairs_R_Z.png}
-\caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field.}
+\includegraphics[width=3.5in]{figures/pairs_R_Z.png}
+\caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field for E\textsubscript{cm}=365~GeV.}
 \label{fig_pairbcg}
 \end{figure}
 
@@ -145,9 +145,15 @@ The occupancy due to $e^+e^-$ incoherent pairs in the drift chamber is estimated
 The occupancy of the drift chamber as a function of its radius is shown in~\cref{fig_simhitspercent}. The overall occupancy due to this background remains low and does not pose problems for the reconstruction of the tracks using the drift chamber.
 
 \begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{figures/layerR_vs_wires_percent}
-\caption{The percentage of wires hit due to $e^+e^-$ background as a function of the layer radius averaged over 100 bunch crossings.}
+\subfloat[]{\includegraphics[width=2.5in]{figures/occupancy_Z.pdf}%
+% \caption{E\textsubscript{cm}=91.2~GeV}
+\label{fig_simhitspercent_Z}}
+\hfil
+\subfloat[]{\includegraphics[width=2.5in]{figures/occupancy_top.pdf}%
+\label{fig_simhitspercent_top}}
+% \centering
+% \includegraphics[width=2.5in]{figures/layerR_vs_wires_percent}
+\caption{The percentage of wires hit due to $e^+e^-$ background as a function of the layer radius for collisions at (a) E\textsubscript{cm}=91.2~GeV and (b) E\textsubscript{cm}=365~GeV.}
 \label{fig_simhitspercent}
 \end{figure}
 
