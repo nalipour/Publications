@@ -123,17 +123,17 @@ The segmentation of the sensitive gas detector contains the information on the p
 \textsc{Geant4} simulates the passage of particles through matter. For the drift chamber simulation, a step size of 2~mm is chosen in order to step trough the gas volume and calculate the energy deposited. The ionization charge is then drifted to the nearest wire. This allows for calculating the drift time and therefore the signal in the wires. Once the contribution from each \textsc{Geant4} step is calculated, the digitization step regroups the energy deposited with a drift time smaller than the maximum drift time in the cell.
 
 \section{Impact of beam-induced backgrounds}
-One of the main sources of background at the FCC-ee experiments is generated from the strong electromagnetic force from the electron and positron bunches in the field of the opposite beam. This leads to the production of Beamstrahlung photons. The interactions of Beamstrahlung photons generate incoherent lepton pairs at low polar angles and mostly contained in the forward direction as shown in~\cref{fig_pairbcg}. The \textsc{GUINEA-PIG}~\cite{Schulte:382453} event generator has been used to generate the incoherent $e^+e^-$ background particles at a $\sqrt{s}$ of $365\,\gev$~\cite{Voutsinas:2017eca} and their impact on the drift chamber is studied below.
+One of the main sources of background at the FCC-ee experiments is generated from the strong electromagnetic force from the electron and positron bunches in the field of the opposite beam. This leads to the production of Beamstrahlung photons. The interactions of Beamstrahlung photons generate incoherent lepton pairs at low polar angles and mostly contained in the forward direction as shown in~\cref{fig_pairbcg}. The \textsc{GUINEA-PIG}~\cite{Schulte:382453} event generator has been used to generate the incoherent $e^+e^-$ background particles~\cite{Voutsinas:2017eca} and their impact on the drift chamber is studied below for $\sqrt{s}$ of $92.5\,\gev$ and $365\,\gev$.
 
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=3.5in]{figures/pairs_R_Z.png}
-\caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field for E\textsubscript{cm}=365~GeV.}
+\caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field for a $\sqrt{s}$ of $365\,\gev$.}
 \label{fig_pairbcg}
 \end{figure}
 
-The occupancy due to $e^+e^-$ incoherent pairs in the drift chamber is estimated to $\sim2.85\%$ (averaged over 100 bunch crossings). In fact, the produced incoherent pairs have a low polar angle and only few of them reach the drift chamber. Most of the hits observed are due to the scattering of the $e^+e^-$ pairs by interacting with the elements in the interaction region.
+In fact, the produced incoherent pairs have a low polar angle and only few of them reach the drift chamber. Most of the hits observed are due to the scattering of the $e^+e^-$ pairs by interacting with the elements in the interaction region.
 
 % \begin{figure}[!t]
 % \centering
@@ -153,7 +153,7 @@ The occupancy of the drift chamber as a function of its radius is shown in~\cref
 \label{fig_simhitspercent_top}}
 % \centering
 % \includegraphics[width=2.5in]{figures/layerR_vs_wires_percent}
-\caption{The percentage of wires hit due to $e^+e^-$ background as a function of the layer radius for collisions at (a) E\textsubscript{cm}=91.2~GeV and (b) E\textsubscript{cm}=365~GeV.}
+\caption{The percentage of wires hit due to $e^+e^-$ background as a function of the layer radius for collisions at (a) $\sqrt{s}$=$92.5\,\gev$ and (b) $\sqrt{s}$=$365\,\gev$.}
 \label{fig_simhitspercent}
 \end{figure}
 
@@ -162,5 +162,35 @@ The drift chamber for the IDEA detector concept has been investigated in full si
 
 \bibliography{ref.bib}
 \bibliographystyle{ieeetr}
+
+\section{Additional checks}
+
+\cref{numwires} shows the number of wires hit for 100~GeV single muons at $\theta=90^{\circ}$ uniformly distributed over $\phi$. The distribution contains some tail but the peak corresponds to 112 wires as expected.
+
+\begin{figure}[!t]
+\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/single_muon_90deg.pdf}%
+\label{muon90deg}}
+\hfil
+\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/single_muon_90deg_zoom.pdf}%
+\label{muon90_zoom}}
+\caption{Number of wires hit in DCH for 100~GeV muons at $\theta=90^{\circ}$, averaged over $\phi$.}
+\label{numwires}
+\end{figure}
+
+The number of wires as a function of the polar angle $\theta$ is given in \cref{wires_vs_theta}.
+
+\begin{figure}[!t]
+\centering
+\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/nb_layers_DCH_noCut.pdf}%
+\label{wires_vs_theta_noCut}}
+\hfil
+\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/nb_layers_DCH_ECut100eV.pdf}%
+\label{wires_vs_theta_100eVCut}}
+\hfil
+\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/nb_layers_DCH_ECut500eV.pdf}%
+\label{wires_vs_theta_500eVCut}}
+\caption{Number of wires as a function of $\theta$ for (a) no cut on E\textsubscript{dep}, (b) E\textsubscript{dep} cut of 100~eV and (c) E\textsubscript{dep} of 500~eV.}
+\label{wires_vs_theta}
+\end{figure}
 
 \end{document}
