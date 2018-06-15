@@ -31,7 +31,7 @@ $365\,\gev$, allows for high-precision measurements of the properties of the Z, 
 \section{Drift chamber}
 The parameters of the drift chamber for the IDEA detector is summarized in \cref{driftChamberParams}. A gas, composed of $90~\%$ of Helium and $10~\%$ of isobutane ($\text{C}_{4}\text{H}_{10}$), is foreseen to be used. Thanks to the average stereo angle of 0.1~radians, a longitudinal resolution of 1~mm can be achieved.
 
-\begin{table}[!t]
+\begin{table}[!h]
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Parameters of the drift chamber for the IDEA detector}
 	\label{driftChamberParams}
@@ -53,7 +53,7 @@ The parameters of the drift chamber for the IDEA detector is summarized in \cref
 
 The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experiments. It is based on the Gaudi software framework~\cite{Gaudi} for parallel data processing, \textsc{Geant4} simulation toolkit~\cite{Geant4} and the DD4hep detector description toolkit for high energy physics~\cite{DD4hep}. The FCCSW simulation pipeline is summarized in \cref{simu_chain} and described here-below.
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
 	\smartdiagramset{back arrow disabled=true}
 	\scalebox{1}{
@@ -70,7 +70,7 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 \subsection{Geometry description with DD4hep}
 First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim}. The interaction region consists of a beam pipe, a shielding solenoid, a luminosity calorimeter, a vertex detector and a drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes them into account.
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
     \begin{tikzpicture}
       \node[anchor=south west,inner sep=0] (image) at
@@ -107,12 +107,12 @@ First, the geometry of the detector is described using the DD4hep simulation fra
 
 The segmentation of the sensitive gas detector contains the information on the positions of the wires in the detector. The segmentation for the first layer of the drift chamber is shown in \cref{fig_segmentation_first_case}. The total number of wires as a function of the polar angle $\theta$ is illustrated in \cref{fig_segmentation_second_case}.
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
 \subfloat[]{\includegraphics[width=2in]{figures/allHits}%
 \label{fig_segmentation_first_case}}
 \hfil
-\subfloat[]{\includegraphics[width=2.5in]{figures/theta_nbHits_DCH}%
+\subfloat[]{\includegraphics[width=2.5in]{figures/14_June/numWires_ECut100eV_DCA8mm.pdf}%
 \label{fig_segmentation_second_case}}
 \caption{(a) shows the segmentation of the first layer of the drift chamber. (b) shows the total number of wires as a function of the polar angle $\theta$ (calculated using infinite momentum tracks from the origin).}
 \label{fig_segmentation}
@@ -120,16 +120,30 @@ The segmentation of the sensitive gas detector contains the information on the p
 
 
 \subsection{\textsc{Geant4} simulation and digitization}
-\textsc{Geant4} simulates the passage of particles through matter. For the drift chamber simulation, a step size of 2~mm is chosen in order to step trough the gas volume and calculate the energy deposited. The ionization charge is then drifted to the nearest wire. This allows for calculating the drift time and therefore the signal in the wires. Once the contribution from each \textsc{Geant4} step is calculated, the digitization step regroups the energy deposited with a drift time smaller than the maximum drift time in the cell.
+\textsc{Geant4} simulates the passage of particles through matter. For the drift chamber simulation, a step size of 2~mm is chosen in order to step trough the gas volume and calculate the energy deposited. The ionization charge is then drifted to the nearest wire. This allows for calculating the drift time and therefore the signal in the wires. Once the contribution from each \textsc{Geant4} step is calculated, the digitization step regroups the energy deposited with a drift time smaller than the maximum drift time in the cell. A threshold of $100\,\ev$ is applied on the total energy deposited in a cell.
+
+The corners and the the edges of the cells have very low electric field causing an extremely low drift time which are suppressed as they create isolated hits. In simulation, these hits correspond to cells where \textsc{Geant4} has only stepped once or hits having a distance of closest approach (DCA) higher than 0.8~cm. A cut is subsequently applied in the digitization to suppress these hits.
+
+\cref{fig_DCA_Edep} shows the distribution of the energy deposited and the distance of the closest approach in a cell after the application of the above-mentioned cuts and the digitization obtained by $100\,\gev$ muons with a uniform distribution in $\theta$ and $\phi$ directions.
+
+\begin{figure}[!h]
+\subfloat[]{\includegraphics[width=2.5in]{figures/14_June/Edep_100eV_DCA8mm.pdf}
+\label{fig_simhitspercent_Z}}
+\hfil
+\subfloat[]{\includegraphics[width=2.5in]{figures/14_June/DCA_100eV_DCA8mm.pdf}%
+\label{fig_simhitspercent_top}}
+\caption{The distribution of (a) the energy deposited in a cell and (b) the distance of the distance of the closest approach in a cell after digitization.}
+\label{fig_DCA_Edep}
+\end{figure}
 
 \section{Impact of beam-induced backgrounds}
-One of the main sources of background at the FCC-ee experiments is generated from the strong electromagnetic force from the electron and positron bunches in the field of the opposite beam. This leads to the production of Beamstrahlung photons. The interactions of Beamstrahlung photons generate incoherent lepton pairs at low polar angles and mostly contained in the forward direction as shown in~\cref{fig_pairbcg}. The \textsc{GUINEA-PIG}~\cite{Schulte:382453} event generator has been used to generate the incoherent $e^+e^-$ background particles~\cite{Voutsinas:2017eca} and their impact on the drift chamber is studied below for $\sqrt{s}$ of $92.5\,\gev$ and $365\,\gev$.
+One of the main sources of background at the FCC-ee experiments is generated from the strong electromagnetic force from the electron and positron bunches in the field of the opposite beam. This leads to the production of Beamstrahlung photons. The interactions of Beamstrahlung photons generate incoherent lepton pairs at low polar angles in a 2~T field and mostly contained in the forward direction as shown in~\cref{fig_pairbcg}. The \textsc{GUINEA-PIG}~\cite{Schulte:382453} event generator has been used to generate the incoherent $e^+e^-$ background particles~\cite{Voutsinas:2017eca} and their impact on the drift chamber is studied below for $\sqrt{s}$ of $92.5\,\gev$ and $365\,\gev$.
 
 
-\begin{figure}[!t]
+\begin{figure}[!h]
 \centering
 \includegraphics[width=3.5in]{figures/pairs_R_Z.png}
-\caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field for a $\sqrt{s}$ of $365\,\gev$.}
+\caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field for a $\sqrt{s}$ of $365\,\gev$ (obtained from a helix extrapolation).}
 \label{fig_pairbcg}
 \end{figure}
 
@@ -142,124 +156,30 @@ In fact, the produced incoherent pairs have a low polar angle and only few of th
 % \label{fig_simhits}
 % \end{figure}
 
-The occupancy of the drift chamber as a function of its radius is shown in~\cref{fig_simhitspercent}. The overall occupancy due to this background remains low and does not pose problems for the reconstruction of the tracks using the drift chamber.
+The occupancy of the drift chamber due to the incoherent pairs as a function of its radius for $\sqrt{s}$=$92.5\,\gev$ and $\sqrt{s}$=$365\,\gev$ is shown in~\cref{fig_simhitspercent}. The overall occupancy due to this background remains low and does not pose problems for the reconstruction of the tracks using the drift chamber.
 
-\begin{figure}[!t]
-\subfloat[]{\includegraphics[width=2.5in]{figures/occupancy_Z.pdf}%
+\begin{figure}[!h]
+\subfloat[]{\includegraphics[width=2.5in]{figures/14_June/Analysis_DCA8mm_E100eV_SL_Z.pdf}%
 % \caption{E\textsubscript{cm}=91.2~GeV}
 \label{fig_simhitspercent_Z}}
 \hfil
-\subfloat[]{\includegraphics[width=2.5in]{figures/occupancy_top.pdf}%
+\subfloat[]{\includegraphics[width=2.5in]{figures/14_June/Analysis_DCA8mm_E100eV_SL.pdf}%
 \label{fig_simhitspercent_top}}
 % \centering
 % \includegraphics[width=2.5in]{figures/layerR_vs_wires_percent}
-\caption{The percentage of wires hit due to $e^+e^-$ background as a function of the layer radius for collisions at (a) $\sqrt{s}$=$92.5\,\gev$ and (b) $\sqrt{s}$=$365\,\gev$.}
+\caption{The percentage of wires hit due to $e^+e^-$ background for each super layer for collisions at (a) $\sqrt{s}$=$92.5\,\gev$ and (b) $\sqrt{s}$=$365\,\gev$.}
 \label{fig_simhitspercent}
 \end{figure}
+
+\section{Energy deposition and the distance of the closest approach}
+
+
 
 \section{Conclusion}
 The drift chamber for the IDEA detector concept has been investigated in full simulations using the FCCSW. The full simulation chain has been implemented and validated using this common software and the impact of one of the most important beam-induced backgrounds due to the incoherent $e^+e^-$ pairs has been investigated in simulations. The overall impact remains low and remains promising for the track reconstruction with this detector.
 
 \bibliography{ref.bib}
 \bibliographystyle{ieeetr}
-
-\section{Additional checks on the number of wires hit}
-
-\cref{numwires} shows the number of wires hit for 100~GeV single muons at $\theta=90^{\circ}$ uniformly distributed over $\phi$. The distribution contains some tail but the peak corresponds to 112 wires as expected.
-
-\begin{figure}[!t]
-\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/single_muon_90deg.pdf}%
-\label{muon90deg}}
-\hfil
-\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/single_muon_90deg_zoom.pdf}%
-\label{muon90_zoom}}
-\caption{Number of wires hit in DCH for 100~GeV muons at $\theta=90^{\circ}$, averaged over $\phi$.}
-\label{numwires}
-\end{figure}
-
-The number of wires as a function of the polar angle $\theta$ is given in \cref{wires_vs_theta}.
-
-\begin{figure}[!t]
-\centering
-\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/nb_layers_DCH_noCut.pdf}%
-\label{wires_vs_theta_noCut}}
-\hfil
-\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/nb_layers_DCH_ECut100eV.pdf}%
-\label{wires_vs_theta_100eVCut}}
-\hfil
-\subfloat[]{\includegraphics[width=2.5in]{figures/checkplots/nb_layers_DCH_ECut500eV.pdf}%
-\label{wires_vs_theta_500eVCut}}
-\caption{Number of wires as a function of $\theta$ for (a) no cut on E\textsubscript{dep}, (b) E\textsubscript{dep} $>$ 100~eV and (c) E\textsubscript{dep} $>$ 500~eV.}
-\label{wires_vs_theta}
-\end{figure}
-
-\section{The distance of closest approach (DCA)}
-For 100~GeV single muons, the DCA is being investigated as shown in \cref{DCA_noCut}. The cell sizes, as they are implemented now, vary between $12\times12\,\cmsquared$ and $14\times12\,\cmsquared$. Therefore, the hits in the corners of the cell correspond to a DCA of $\sqrt{12^2+14^2}/2=9.22$~cm.
-
-\begin{figure}[h]
-\centering
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/DCA_all.pdf}%
-\label{dca_1hit}}
-\hfil
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/Edep_tot.pdf}%
-\label{Edep_1hit}}
-\caption{DCA for 100~GeV muons with a uniform distribution in $\theta$ and $\phi$.}
-\label{DCA_noCut}
-\end{figure}
-
-The hits having the highest DCAs, have a very low energy deposit and are created due to only one step of \textsc{Geant4}. Their energy deposition is shown in \cref{1hit_DCA_Edep}.
-
-\begin{figure}[h]
-\centering
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/DCA_singleHit.pdf}%
-\label{dca_1hit}}
-\hfil
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/Edep_1hit.pdf}%
-\label{Edep_1hit}}
-\caption{DCA and E\textsubscript{dep} of hits created due to only one step of \textsc{Geant4}.}
-\label{1hit_DCA_Edep}
-\end{figure}
-
-By applying a cut of 100~eV, the DCA and the E\textsubscript{dep} within the gas is shown in \cref{DCA_Edep_100eVcut}. This cut reduces the amount of the hits due to signle-Geant4 steps. But on the other hand, the signal is lost.
-
-\begin{figure}[h]
-\centering
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/DCA_100eVcut.pdf}%
-\label{dca_1hit}}
-\hfil
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/Edep_100eVcut.pdf}%
-\label{Edep_1hit}}
-\caption{DCA and E\textsubscript{dep} by applying a cut of 100~eV on the E\textsubscript{dep}.}
-\label{DCA_Edep_100eVcut}
-\end{figure}
-
-By applying a cut of 100~eV on the energy deposition, and a DCA cut of 0.8~cm and the E\textsubscript{dep} within the gas is shown in \cref{DCA_Edep_100eVcut_8mmDCA}. This cut reduces the amount of the hits due to signle-Geant4 steps. But on the other hand, the signal is lost.
-
-\begin{figure}[h]
-\centering
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/DCA_DCA8mm_E100eV.pdf}%
-\label{dca_1hit}}
-\hfil
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/Edep_DCA8mm_E100eV.pdf}%
-\label{Edep_1hit}}
-\caption{DCA and E\textsubscript{dep} by applying a cut of 100~eV on the E\textsubscript{dep} and a cut of 0.8~cm on the DCA.}
-\label{DCA_Edep_100eVcut_8mmDCA}
-\end{figure}
-
-
-\begin{figure}[h]
-\centering
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/Ecut100eV.pdf}%
-\label{top_incoherent_Ecut100eV}}
-\hfil
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/Ecut200eV.pdf}%
-\label{top_incoherent_Ecut200eV}}
-\hfil
-\subfloat[]{\includegraphics[width=2in]{figures/checkplots/Ecut500eV.pdf}%
-\label{top_incoherent_Ecut500eV}}
-\caption{The incoherent pairs at the top stage with different cuts on the deposited energy}
-\label{top_incoherent_Ecu}
-\end{figure}
 
 
 \end{document}
