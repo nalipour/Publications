@@ -71,34 +71,37 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 First, the geometry of the detector is described using the DD4hep simulation framework. The implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim}. The interaction region consists of a beam pipe, a shielding solenoid, a luminosity calorimeter, a vertex detector and a drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes them into account.
 
 \begin{figure}[!h]
-\centering
-    \begin{tikzpicture}
-      \node[anchor=south west,inner sep=0] (image) at
-      (0,0){\includegraphics[width=0.8\textwidth]{figures/FCCeeIDEA_IR}};
-      \begin{scope}[x={(image.south east)},y={(image.north west)}]
+	\centering
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (image) at
+    (0,0){\includegraphics[width=\textwidth]{figures/FCCeeIDEA_IR}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
 
-%		\draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
-%        \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
-%        \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10)
-%         {0.\y}; }
-%
-        \draw[->, thick](0.2, 0.7) -- (0.4, 0.7);
-		\node[left] at (0.2, 0.7) {Drift chamber};
+		% \draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
+    %    \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+    %    \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10)
+    %     {0.\y}; }
 
-		\draw[->, thick](-0.1, 0.25) -- (0., 0.25);
-		\node[left] at (-0.1, 0.25) {Beam pipe};
 
-		\draw[->, thick](0.1, 0.4) -- (0.2, 0.4);
-		\node[left] at (0.1, 0.4) {Solenoid shielding};
+		\node[left] at (0.6, 0.7) {\textbf{Drift Chamber}};
 
-		\draw[->, thick](0.6, 0.05) -- (0.48, 0.4);
-		\node[below] at (0.6, 0.05) {Luminosity calorimeter};
+		\draw[->, thick](0.05, 0.25) -- (0.05, 0.1);
+		\node[above] at (0.05, 0.25) {\textbf{Beam Pipe}};
 
-		\draw[->, thick](0.8, 0.2) -- (0.58, 0.5);
-		\node[below] at (0.8, 0.2) {Vertex detector};
+		\draw[->, thick](0.15, 0.45) -- (0.15, 0.22);
+		\node[above] at (0.15, 0.45) {\textbf{Solenoid Shielding}};
+
+		\draw[->, thick](0.2, 0.7) -- (0.42, 0.4);
+		\node[above] at (0.2, 0.7) {\textbf{Tungsten Shielding}};
+
+		\draw[->, thick](0.55, 0.05) -- (0.48, 0.4);
+		\node[below] at (0.55, 0.05) {\textbf{Luminosity Calorimeter}};
+
+		\draw[->, thick](0.75, 0.2) -- (0.58, 0.5);
+		\node[below] at (0.75, 0.2) {\textbf{Vertex Detector}};
 
 	\end{scope}
-    \end{tikzpicture}
+  \end{tikzpicture}
 \caption{The detectors at the interaction region for the FCC-ee IDEA concept.}
 \label{fig_sim}
 \end{figure}
