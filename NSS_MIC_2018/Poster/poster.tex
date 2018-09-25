@@ -22,7 +22,7 @@
 \setlength{\TPVertModule}{1cm}
 
 \usepackage{tikz,tikz-3dplot} %nalipour
-\usetikzlibrary{shapes,arrows, decorations.pathreplacing, snakes} %nalipour
+\usetikzlibrary{shapes,arrows, decorations.pathreplacing}%, snakes} %nalipour
 
 \def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
 
@@ -37,12 +37,10 @@
 \setbeamertemplate{bibliography entry title}{}
 \setbeamertemplate{bibliography entry location}{}
 \setbeamertemplate{bibliography entry note}{}
-% \title{\hspace*{-6.7cm}Search for New Physics in SHiP\\\hspace*{-6.7cm}and at future colliders}
-% \author{\vspace*{0.7cm}{\hspace*{-6.7cm}\underline{E. Graverini}, N. Serra, B. Storaci}}
 \footer{}
 
 
-\usebackgroundtemplate{%%\includegraphics[width=\paperwidth]{Figures/CLIC_canvas_accelerator_small.jpg}}
+% \usebackgroundtemplate{%%\includegraphics[width=\paperwidth]{Figures/CLIC_canvas_accelerator_small.jpg}}
 
 
 \title{\Huge{CLIC vertex detector R\&D}}
@@ -52,10 +50,10 @@
 \date{}
 %\footimage{}
 
-\usepackage[backend=bibtex,style=numeric-comp,firstinits=true]{biblatex}
-\bibliography{bib}
-\setbeamertemplate{bibliography item}[text]
-\renewcommand*{\bibfont}{\footnotesize}
+% \usepackage[backend=bibtex,style=numeric-comp,firstinits=true]{biblatex}
+% \bibliography{bib}
+% \setbeamertemplate{bibliography item}[text]
+% \renewcommand*{\bibfont}{\footnotesize}
 
 % tcolorbox styles
 \tcbset{%
