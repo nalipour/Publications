@@ -10,6 +10,9 @@
 \usepackage{siunitx}
 \usepackage[export]{adjustbox}
 \usepackage{gmp}
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+\usepackage{booktabs}
 %\usepackage{enumitem}
 
 %\DeclareGraphicsRule{.1}{mps}{*}{}
@@ -43,8 +46,8 @@
 % \usebackgroundtemplate{%%\includegraphics[width=\paperwidth]{Figures/CLIC_canvas_accelerator_small.jpg}}
 
 
-\title{\Huge{CLIC vertex detector R\&D}}
-\author{\vspace*{1.5cm}{\Large{Niloufar Alipour Tehrani (CERN \& ETH Z\"{u}rich)\\On behalf of the CLICdp collaboration}\\\vspace*{1cm}{\Large{13th Pisa Meeting on Advanced Detectors, 24-30 May 2015}}}}
+\title{\Huge{Design of a drift chamber tracking system for the IDEA experiment at FCC-ee}}
+\author{\vspace*{1.5cm}{\Large{Niloufar Alipour Tehrani (CERN), Benedikt Hegner, Giovanni Francesco Tassielli, Francesco Grancagnolo}\\\vspace*{1cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference}}}}
 % \footer{}
 \institute{CERN}
 \date{}
@@ -76,13 +79,13 @@
 \begin{frame}
 
 \begin{textblock}{2}(0.8,0.25)
-%\includegraphics[width=4.\textwidth]{Figures/logo_cern.pdf}
+\includegraphics[width=4.\textwidth]{Figures/logo_cern.pdf}
 \end{textblock}
 \begin{textblock}{6}(61,0.01)
-%\includegraphics[width=1.5\textwidth]{Figures/logo_clic.pdf}
+\includegraphics[width=1.5\textwidth]{Figures/FCC-logo}
 \end{textblock}
 \begin{textblock}{20}(4.5, 11)
-\textcolor{red}{\small{\url{http://clicdp.web.cern.ch/}}}
+%\textcolor{red}{\small{\url{http://clicdp.web.cern.ch/}}}
 \end{textblock}
 
 
@@ -90,453 +93,129 @@
 %%%                             Block                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{textblock}{16.5}(0.5, 14)
-  \begin{tcolorbox}[title=CLIC: the Compact Linear Collider]
+  \begin{tcolorbox}[title=FCC: Future Circular Collider]
 
-    % \begin{itemize}
-    % \item Concept for a future $e^{+}e^{-}$ linear collider
-    % \item Staged construction \& operation:
-    %   \begin{enumerate}
-    %   \item $\sqrt{s}$=\SI{350}{\giga\electronvolt}: \textcolor{blue}{Higgs, top physics inc. threshold}
-    %   \item $\sqrt{s}$=\SI{1.4}{\tera\electronvolt}: \textcolor{blue}{Higher precision Higgs, top Yukawa coupling, first BSM searches}
-    %   \item $\sqrt{s}$=\SI{3}{\tera\electronvolt}: \textcolor{blue}{double Higgs production, high sensitivity direct and indirect BSM}
-    %   \end{enumerate}
-    % \item Instantaneous luminosity at \SI{3}{\tera\electronvolt}:
-    %   \begin{itemize}
-    %   \item $\mathcal{L}=$\SI{6e34}{\per\square\centi\meter\per\second}
-    %   \end{itemize}
-    % \item A possible realisation close to CERN:
-    %   \begin{itemize}
-    %   \item Maximum length: $\sim$\SI{50}{\kilo\meter}
-    %   \end{itemize}
-    % \end{itemize}
-
-    %\vspace{0.2cm}
-    %\centering
-    %\includegraphics[width=0.9\textwidth]{Figures/clic_at_cern.png}
+  \begin{itemize}
+    \item A future collider
+    \item 3 options
+  \end{itemize}
+    \centering
+    \includegraphics[width=0.9\textwidth]{Figures/cernFCC}
 
   \end{tcolorbox}
 \end{textblock}
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%                             Block                                %%%
+% %%%                             Block                 %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{textblock}{52}(17.5, 14)
-%   \begin{tcolorbox}[title=CLIC detector concept]
-%
-%
-%     \begin{columns}
-%       \column{0.6\textwidth}
-%       %\vspace{-0.2cm}
-%       Beam structure allows for \textcolor{blue}{triggerless} readout and \textcolor{blue}{power pulsing} of the detectors:
-%       \begin{columns}
-%         \column{0.4\textwidth}
-%
-%           \begin{itemize}
-%           \item 312 bunches per train of \SI{156}{\nano\second}
-%           % \item Bunch crossings every \SI{0.5}{\nano\second}
-%           % \item Train duration: \SI{156}{\nano\second}
-%           %\item 312 bunches per train
-%           \item Train repetition: \SI{20}{\milli\second}
-%           \end{itemize}
-%
-%         \column{0.6\textwidth}
-%         \centering
-%         %\includegraphics[width=0.6\textwidth]{Figures/CLICbeam.png}
-%       \end{columns}
-%
-%       \vspace{0.8cm}
-%       \begin{tcolorbox}[subtcolorbox, title=Vertex detector requirements]
-%         \begin{columns}
-%           \column{0.7\textwidth}
-%           \vspace{-0.5cm}
-%           \begin{itemize}
-%           \item \textcolor{blue}{Aim}: efficient identification of heavy quarks in high occupancy.
-%           \item Multi-layer barrel and endcap pixel detectors.
-%           \item \textcolor{blue}{Goal for the pixel detectors}: achieve a single point resolution of $\sim$\SI{3}{\micro\meter} with \SI{25}{\micro\meter}  pixel pitch \& analog readout.
-%           \item Time slicing of $\sim$ \SI{10}{\nano\second} allows to reduce the impact of beam-induced backgrounds. \vspace{0.1cm}
-%           \item Material budget of $<0.2\%X_{0}$ per layer implies:
-%             \begin{itemize}
-%             \item \textcolor{blue}{\SI{50}{\micro\meter}} sensor on \textcolor{blue}{\SI{50}{\micro\meter}} ASIC.
-%             \item Limit the power dissipation to \SI{50}{\milli\watt\per\square\centi\meter} in sensor area: \\
-%               $\Rightarrow$ power pulsing \\
-%               $\Rightarrow$ air-flow cooling: spiral arrangement of the modules in the vertex endcap regions
-%             \end{itemize}
-%           \end{itemize}
-%
-%           \column{0.3\textwidth}
-%           \centering
-%           %\includegraphics[width=0.8\textwidth]{Figures/secondary_vertex.png} \\
-%           \vspace{-0.2cm}
-%           %\includegraphics[width=0.7\textwidth]{Figures/single_spiral.png}
-%         \end{columns}
-%
-%         % \begin{itemize}
-%         % \item \textcolor{blue}{Goal for the pixel detectors}: achieve a single point resolution of $\sim$\SI{3}{\micro\meter} with \SI{25}{\micro\meter}  pixel pitch \& analog readout.
-%         % \end{itemize}
-%
-%
-% %         \begin{columns}
-% %           \column{0.7\textwidth}
-% %           \vspace{-2cm}
-% %           \begin{itemize}
-% %           \item Material budget of $<0.2\%X_{0}$ per layer implies:
-% %             \begin{itemize}
-% %             \item \textcolor{blue}{\SI{50}{\micro\meter}} sensor on \textcolor{blue}{\SI{50}{\micro\meter}} ASIC.
-% %             \item Limit the power dissipation to \SI{50}{\milli\watt\per\square\centi\meter} in sensor area: \\
-% %               $\Rightarrow$ power pulsing \\
-% %               $\Rightarrow$ air-flow cooling: spiral arrangement of the modules in the vertex endcap regions
-% %             \end{itemize}
-% %           \end{itemize}
-%
-% %           \column{0.3\textwidth}
-% % %          \vspace{10cm}
-% %           \centering
-% % %          \hspace{-2cm}
-% %           %\includegraphics[width=0.7\textwidth]{Figures/single_spiral.png}
-% %         \end{columns}
-%       \end{tcolorbox}
-%
-%       \column{0.4\textwidth}
-%       \centering
-%       %\includegraphics[width=\textwidth]{Figures/CLIC_DETECTOR}
-%     \end{columns}
-%
-%   \end{tcolorbox}
-% \end{textblock}
+\begin{textblock}{52}(17.5, 14)
+  \begin{tcolorbox}[title=FCCSW: Physics and Detector simulations with FCCSW]
+
+  \centering
+  	\smartdiagramset{back arrow disabled=true}
+  	% \scalebox{5}{
+  	  	\smartdiagram[flow diagram:horizontal]
+  	  	{%
+  	    	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
+  	  	}
+    	% }
+
+  \end{tcolorbox}
+\end{textblock}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                                %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % \begin{textblock}{36.8}(22, 27)
-% %   \begin{tcolorbox}[title=Vertex detector requirements]
-% %   % \begin{block}{Vertex detector requirements}
-% %     \vspace{-0.3cm}
-% %     \begin{columns}
-% %       \column{0.4\textwidth}
-% %       \centering
-% %       %\includegraphics[width=\textwidth]{Figures/VertexDetector_canvas.jpg}
-%
-% %       \column{0.6\textwidth}
-% %       \begin{itemize}
-% %       \item \textcolor{blue}{Aim}: efficient identification of heavy quarks in high occupancy.
-% %       \item \textcolor{orange}{Multi-layer} barrel and endcap pixel detectors.
-% %       \item \textcolor{blue}{Goal}: achieve single point resolution of $\sim$\SI{3}{\micro\meter} with \SI{25}{\micro\meter}  pixel pitch \& analog readout.
-% %       \end{itemize}
-% %     \end{columns}
-%
-% %     \begin{itemize}
-% %     \item Material budget of $<0.2\%X_{0}$ per layer implies:
-% %       \begin{itemize}
-% %       \item \textcolor{blue}{\SI{50}{\micro\meter}} sensor on \textcolor{blue}{\SI{50}{\micro\meter}} ASIC.
-% %       \item Limit the power dissipation to \SI{50}{\milli\watt\per\square\centi\meter} in sensor area $\Rightarrow$ airflow cooling \& power pulsing.
-% %       \end{itemize}
-% %     \end{itemize}
-%
-% % %  \end{block}
-% %   \end{tcolorbox}
-% % \end{textblock}
-%
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%                             Block                                %%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{textblock}{69}(0.5, 36.5)
-%   \begin{tcolorbox}[title=R\&D on sensor and readout]
-% %  \begin{block}{R\&D on sensor and readout}
-%
-%     \begin{columns}
-%       \column{0.5\textwidth}
-%       \begin{tcolorbox}[subtcolorbox, title=Test-beam campaigns]
-%         \begin{columns}
-%           \column{0.6\textwidth}
-%           \begin{itemize}
-%           \item Data recorded using the EUDET/AIDA telescope at:
-%             \begin{itemize}
-%             \item DESY II: \SI{5.6}{\giga\electronvolt} electron beam
-%             \item CERN PS: \SI{10}{\giga\electronvolt} mixed beam
-%             \item CERN SPS: \SI{120}{\giga\electronvolt} pion beam
-%             \end{itemize}
-%           \item The telescope contains 6 planes of Mimosa26 pixel sensors with a tracking resolution of $\sim$\SI{3}{\micro\meter} for \SI{5.6}{\giga\electronvolt} electron beam. \vspace{0.2cm}
-%           \end{itemize}
-%
-%           \column{0.4\textwidth}
-%           \centering
-%           \begin{tikzpicture}
-%             \node[anchor=south west,inner sep=0] (image) at (0, 0){%\includegraphics[width=\textwidth]{Figures/telescope.png}};
-%             \draw[->,line width=4pt, color=red](6.5, 1.5) -- (6.5, 2.5);
-%             \node[below, color=red] at (6.5, 1.5) {\textbf{DUT}};
-%           \end{tikzpicture}
-%         \end{columns}
-%       \end{tcolorbox}
-%
-%       \column{0.5\textwidth}
-%       \begin{tcolorbox}[subtcolorbox, title=CLICpix readout chip demonstrator]
-%         \begin{columns}
-%           \column{0.6\textwidth}
-%
-%           \begin{itemize}
-%           \item ASIC in \SI{65}{\nano\meter} CMOS technology.
-%           \item Matrix of $64 \times 64$ pixels, \SI{25}{\micro\meter} pixel pitch.
-%           \item Simultaneous measurement of time of arrival (TOA) and time over threshold (TOT) per pixel.
-%           \item Compatible with power pulsing scheme.
-%           \item Selectable compression logic.
-%           \end{itemize}
-%
-%           % \begin{itemize}
-%           % \item ASIC in \SI{65}{\nano\meter} technology
-%           % \item $64 \times 64$ pixels, \SI{25}{\micro\meter} pitch
-%           % \item 4-bit TOA, 4-bit TOT %  $\Rightarrow$ \SI{10}{\nano\second} time stamping
-%           % \end{itemize}
-%
-%           \column{0.4\textwidth}
-%           \centering
-%           %\includegraphics[width=0.75\textwidth]{Figures/CLICpixDemonstrator.png}
-%         \end{columns}
-%
-%         % \begin{itemize}
-%         % \item Compatible with power pulsing scheme.
-%         % \item Selectable compression logic.
-%         % \end{itemize}
-%
-%       \end{tcolorbox}
-%
-%     \end{columns}
-%
-%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     %%%% Sensors %%%%
-%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     \begin{columns}
-%       \column{0.5\textwidth}
-%       \begin{tcolorbox}[subtcolorbox, title=Planar sensors]
-%
-%         \begin{columns}
-%           \column{0.7\textwidth}
-%           \begin{itemize}
-%           \item The feasibility of thin sensors is studied using the Timepix ASIC with \SI{55}{\micro\meter} pixel pitch. \vspace{0.2cm}
-%           \item \SI{50}{\micro\meter} to \SI{500}{\micro\meter} thick sensors are bump-bonded to \SI{100}{\micro\meter} to \SI{750}{\micro\meter}  thick Timepix ASICs.
-%           \item Overall detection efficiency $>99\%$.
-%           \end{itemize}
-%
-%           \column{0.3\textwidth}
-%           \begin{tikzpicture}
-%             \centering
-%             \node[anchor=south west,inner sep=0] (image) at (0, 0){%\includegraphics[width=0.9\textwidth]{Figures/Advacam-50um-assembly.jpeg}};
-%             \node[color=blue] at (3, 6) {\textbf{\small{\SI{50}{\micro\meter} sensor on}}};
-%             \node[color=blue] at (3.5, 5.3) {\textbf{\small{\SI{700}{\micro\meter} Timepix ASIC}}};
-%           \end{tikzpicture}
-%         \end{columns}
-%
-%         \begin{itemize}
-%         \item Charge sharing and hit resolution depend on sensor thickness:
-%           \begin{itemize}
-%           \item $\sim$\SI{4}{\micro\meter} resolution achievable for 2-hit clusters (including the tracking resolution).
-%           \item For single-hit clusters, the resolution is determined by the pixel size.
-%           \end{itemize}
-%         \end{itemize}
-%
-%         \vspace{0.3cm}
-%
-%         \begin{columns}
-%           \column{0.5\textwidth}
-%           \centering
-%           %\includegraphics[width=0.9\textwidth]{Figures/cluster_size_vs_thickness_avg.pdf}
-%
-%           \column{0.5\textwidth}
-%           \centering
-%           \begin{tikzpicture}
-%             \centering
-%             \node[anchor=south west,inner sep=0] (image) at (0, 0){%\includegraphics[width=0.9\textwidth]{Figures/resExampleRun1190.pdf}};
-%             %% \draw[->,line width=.4pt, color=blue](4.5, 6.) -- (6, 6.);
-%             \node[left, color=blue] at (7, 9.5) {\textbf{\small{Multi-hit}}};
-%             \node[left, color=blue] at (7, 8.8) {\textbf{\small{clusters}}};
-%
-%             %% \draw[<-,line width=.4pt, color=blue](6.5, 4) -- (7.5, 4);
-%             \node[right, color=blue] at (9.5, 4) {\textbf{\small{Single-hit}}};
-%             \node[right, color=blue] at (9.5, 3.4) {\textbf{\small{clusters}}};
-%           \end{tikzpicture}
-%         \end{columns}
-%
-%         % \begin{columns}
-%         %   \column{0.5\textwidth}
-%         %   \begin{itemize}
-%         %   \item Excellent detection efficiency
-%         %   \end{itemize}
-%
-%         %   \column{0.5\textwidth}
-%         %   \centering
-%         %   \begin{tikzpicture}
-%         %     \centering
-%         %     \node[anchor=south west,inner sep=0] (image) at (0, 0){%\includegraphics[width=\textwidth]{Figures/C06-W0126_EfficiencyVsThreshold.pdf}};
-%         %     \node[color=blue] at (5.1, 4) {\tiny{Nominal}};
-%         %     \node[color=blue] at (4.3, 2) {\tiny{p-in-n sensor}};
-%         %   \end{tikzpicture}
-%
-%         % \end{columns}
-%
-%       \end{tcolorbox}
-%
-%       \column{0.5\textwidth}
-%       \begin{tcolorbox}[subtcolorbox, title=Active HV-CMOS sensors]
-%     %     \centering
-%     %     % %\includegraphics[width=\textwidth]{Figures/HVCMOS_clicpix.pdf}
-%
-%         \begin{columns}
-%           \column{0.6\textwidth}
-%           \begin{itemize}
-%           \item Capacitively coupled pixel detector (CCPDv3) is used as active sensor \textcolor{blue}{$\Rightarrow$ integrates sensor and amplifier}.% glued to CLICpix ASIC.
-%           \item Two-stage amplifier in each pixel.
-%           \item Through a layer of glue, the CCPDv3 chip is capacitively coupled from its amplifier output to the CLICpix readout ASIC \textcolor{blue}{$\Rightarrow$ no bump-bonding.}
-%           % \item CCPDv3 is capacitively coupled to CLICpix bond pads through a layer of glue
-%           \end{itemize}
-%
-%           \column{0.4\textwidth}
-%           \begin{tikzpicture}
-%             \centering
-%             \node[anchor=south west,inner sep=0] (image) at (0, 0){%\includegraphics[width=\textwidth]{Figures/CCPDv3_CLICpix.jpg}};
-%             \node[color=blue] at (8, 2.5) {\textbf{\small{CCPDv3}}};
-%             \draw[->,line width=2pt, color=blue](4, 3.5) -- (5.5, 3.5);
-%             \node[left, color=blue] at (4, 3.5) {\textbf{\small{CLICpix}}};
-%           \end{tikzpicture}
-%         \end{columns}
-%
-%         %\vspace{0.9cm}
-%         \begin{itemize}
-%         \item CCPDv3 is implemented in \SI{180}{\nano\meter} HV-CMOS process and biased at \SI{60}{\volt} \textcolor{blue}{$\Rightarrow$ create a depletion layer with fast signal collection through drift.}
-%         \item High single-hit detection efficiency (high threshold DAC corresponds to low threshold as the chip is operated in negative polarity):
-%         \end{itemize}
-%
-%
-%         \begin{columns}
-%           \column{0.5\textwidth}
-%           \centering
-%           \begin{tikzpicture}
-%           \node[anchor=south west,inner sep=0] (image) at (0, 0){%\includegraphics[width=0.8\textwidth]{Figures/glueing}};
-%           \node[color=white] at (8, 6.2) {\small{\textbf{CCPDv3 pad}}};
-%           \node[color=white] at (8, 5.5) {\small{\SI{19.88}{\micro\meter}}};
-%           \draw[<->,line width=3pt, color=white](6, 4.8) -- (10.2, 4.8);
-%
-%           \node[color=white] at (8, 2) {\small{\textbf{CLICpix pad}}};
-%           \node[color=white] at (8, 1.3) {\small{\SI{14.94}{\micro\meter}}};
-%           \draw[<->,line width=3pt, color=white](6.5, 3) -- (9.5, 3);
-%
-%           \node[color=white] at (5, 4) {\small{\textbf{glue}}};
-%           \draw[<->,line width=3pt, color=white](3.8, 3.5) -- (3.8, 4.5);
-%           \end{tikzpicture}
-%
-%           \column{0.5\textwidth}
-%           \begin{tikzpicture}
-%             \centering
-%             \node[anchor=south west,inner sep=0] (image) at (0, 0){%\includegraphics[width=0.9\textwidth]{Figures/thresholdEfficiencyNegative}};
-%             \node[color=blue] at (9, 5) {\textbf{\small{CLICpix-CCPDv3}}};
-%             \node[color=blue] at (9, 4.2) {\textbf{\small{work in progress}}};
-%             \draw[white, fill=white] (9, 0.1) rectangle (14, 1);
-%             \node[color=black] at (12, 0.5) {\textbf{\small{Threshold DAC}}};
-%           \end{tikzpicture}
-%         \end{columns}
-%
-%
-%       \end{tcolorbox}
-%     \end{columns}
-%
-%   \end{tcolorbox}
-% \end{textblock}
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%                             Block                                %%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{textblock}{34.2}(0.5, 72)
-%   \begin{tcolorbox}[title=Power pulsing]
-%
-%
-%     Power-delivery and power-pulsing design for low-mass vertex detector:
-%
-%     \vspace{0.4cm}
-%     \begin{itemize}
-%     \item Turn off the front-end in gaps between bunch trains to reduce average power in ASIC.
-%     \item Local energy storage in Silicon capacitors and voltage regulation with low-dropout (LDO) regulators.
-%     \item FPGA-controlled current source provides small continuous current.
-%     \item Low-mass all-Kapton cables.
-%     \item Prototype built and tested: $I_{ladder}$=\SI{300}{\milli\ampere}, P$<$\SI{45}{\milli\watt\per\square\centi\meter}.
-%     \end{itemize}
-%
-%     \vspace{0.05cm}
-%
-%     \begin{columns}
-%       \column{0.7\textwidth}
-%       \centering
-%       %\includegraphics[width=0.8\textwidth]{Figures/power_pulsing.pdf}
-%
-%       \column{0.3\textwidth}
-%       \centering
-%       %\includegraphics[width=1.\textwidth]{Figures/power_pulsing_scope.png}
-%     \end{columns}
-%
-%   \end{tcolorbox}
-% \end{textblock}
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%                             Block                                %%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% \begin{textblock}{34.2}(35.2, 72)
-%   \begin{tcolorbox}[title=Air-flow cooling]
-%     Forced air-flow is foreseen for the heat removal of the vertex detector. %\vspace{0.5cm}
-%
-%     \begin{columns}
-%       \column{0.5\textwidth}
-%       \vspace{0.4cm}
-%       \begin{itemize}
-%       \item Total heat load after power-pulsing: $\sim$\SI{500}{\watt} \vspace{0.3cm}
-%       \item Dry air flows through the barrel and the endcap regions.% \vspace{0.5cm}
-%       \end{itemize}
-%
-%       \centering
-%       %\includegraphics[width=0.7\textwidth]{Figures/Vertex_Flow_Streamlines.png}
-%
-%       \column{0.5\textwidth}
-%       \vspace{-1cm}
-%       \begin{itemize}
-%       \item Thermal mockup built for vertex barrel and endcap regions:  %\vspace{0.5cm}
-%         \begin{itemize}
-%         \item Confirms the air-flow through the barrel and the endcap regions.% \vspace{0.3cm}
-%         \item Temperature increase: $\sim$\SI{10}{\celsius} to \SI{35}{\celsius} \vspace{0.5cm}
-%         \end{itemize}
-%       \end{itemize}
-%       %\includegraphics[width=0.8\textwidth]{Figures/airflowTests.jpeg}
-%     \end{columns}
-%
-%
-%   \end{tcolorbox}
-% \end{textblock}
-%
-% %% \begin{textblock}{34.2}(35.2, 72)
-% %%   \begin{tcolorbox}[title=Air-flow cooling]
-%
-% %%     \begin{columns}
-% %%       \column{0.5\textwidth}
-% %%       \begin{itemize}
-% %%       \item Forced air-flow is foreseen for the heat removal of the vertex detector. %\vspace{1cm}
-% %%       \item Total heat load after power-pulsing: $\sim$\SI{500}{\watt} %\vspace{0.5cm}
-% %%       \item Dray air at \SI{0}{\celsius} flows through the barrel and the endcap regions.% \vspace{0.5cm}
-% %%       \item Thermal mockup built vertex barrel and endcap regions:  %\vspace{0.5cm}
-% %%         \begin{itemize}
-% %%         \item Confirms the air-flow through the barrel and the endcap regions.% \vspace{0.3cm}
-% %%         \item Temperature increase: $\sim$\SI{10}{\celsius} to \SI{35}{\celsius}% \vspace{0.6cm}
-% %%         \end{itemize}
-% %%       \end{itemize}
-%
-% %%       \column{0.5\textwidth}
-% %%       \centering
-% %%       %% %\includegraphics[width=0.5\textwidth]{Figures/Vertex_stream.png}\\
-% %%       %\includegraphics[width=0.8\textwidth]{Figures/Vertex_Flow_Streamlines.png}\\
-% %%       %\includegraphics[width=0.8\textwidth]{Figures/airflowTests.jpeg}
-% %%     \end{columns}
-%
-%
-% %%   \end{tcolorbox}
-% %% \end{textblock}
+\begin{textblock}{36.8}(22, 27)
+  \begin{tcolorbox}[title=The IDEA detector concept]
+
+  \centering
+  \includegraphics[width=0.5\textwidth]{../figures/FCCeeIDEAConcept}
+
+  \end{tcolorbox}
+\end{textblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                             Block                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock}{69}(0.5, 36.5)
+  \begin{tcolorbox}[title=Simulation of the drift chamber within FCCSW]
+
+  \begin{columns}
+  \column{0.33\textwidth}
+    \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at
+      (0,0){\includegraphics[width=5in]{../figures/FCCeeIDEA_IR}};
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]
+
+      \draw[->, thick](0.2, 0.7) -- (0.4, 0.7);
+      \node[left] at (0.2, 0.7) {Drift chamber};
+
+      \draw[->, thick](-0.1, 0.25) -- (0., 0.25);
+      \node[left] at (-0.1, 0.25) {Beam pipe};
+
+      \draw[->, thick](0.1, 0.4) -- (0.2, 0.4);
+      \node[left] at (0.1, 0.4) {Solenoid shielding};
+
+      \draw[->, thick](0.6, 0.05) -- (0.48, 0.4);
+      \node[below] at (0.6, 0.05) {Luminosity calorimeter};
+
+      \draw[->, thick](0.8, 0.2) -- (0.58, 0.5);
+      \node[below] at (0.8, 0.2) {Vertex detector};
+
+      \end{scope}
+    \end{tikzpicture}
+
+  \column{0.33\textwidth}
+    \centering
+    \includegraphics[width=5in]{Figures/allHits}
+
+  \column{0.33\textwidth}
+    \centering
+    \includegraphics[width=5in]{Figures/numWires}
+
+  \end{columns}
+
+
+  \end{tcolorbox}
+\end{textblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Block %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock}{34.2}(0.5, 50)
+  \begin{tcolorbox}[title=Beam-induced backgrounds]
+
+  \begin{columns}
+    \column{0.5\textwidth}
+
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=5in]{../figures/pairs_R_Z}
+  \end{columns}
+
+  \end{tcolorbox}
+\end{textblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Block %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock}{34.2}(35, 50)
+  \begin{tcolorbox}[title=Beam-induced backgrounds]
+
+  \centering
+	\begin{tabular}{l c c}
+  	\toprule
+	   Background & \multicolumn{2}{c}{Average occupancy} \\
+	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
+	   \midrule
+	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
+	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
+	   Synchrotron radiation & - & 0.2\% \\
+	   \bottomrule
+	\end{tabular}
+
+  \end{tcolorbox}
+\end{textblock}
 
 %--------------------------------------------%
 \end{frame}
