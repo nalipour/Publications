@@ -47,7 +47,7 @@
 
 
 \title{\Huge{Design of a drift chamber tracking system for the IDEA experiment at FCC-ee}}
-\author{\vspace*{1.5cm}{\Large{Niloufar Alipour Tehrani (CERN), Benedikt Hegner, Giovanni Francesco Tassielli, Francesco Grancagnolo}\\\vspace*{1cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference}}}}
+\author{\vspace*{1.5cm}{\Large{Niloufar Alipour Tehrani (CERN), Benedikt Hegner, Giovanni Francesco Tassielli, Francesco Grancagnolo}\\\vspace*{1cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference, Sydney, Australia}}}}
 % \footer{}
 \institute{CERN}
 \date{}
@@ -81,7 +81,7 @@
 \begin{textblock}{2}(0.8,0.25)
 \includegraphics[width=4.\textwidth]{Figures/logo_cern.pdf}
 \end{textblock}
-\begin{textblock}{6}(61,0.01)
+\begin{textblock}{6}(71,0.25)
 \includegraphics[width=1.5\textwidth]{Figures/FCC-logo}
 \end{textblock}
 \begin{textblock}{20}(4.5, 11)
@@ -92,130 +92,168 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                             Block                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{16.5}(0.5, 14)
-  \begin{tcolorbox}[title=FCC: Future Circular Collider]
+\begin{textblock}{40}(0.5, 14)
+  \begin{tcolorbox}[title=The Future Circular Collider Experiment (FCC)]
 
-  \begin{itemize}
-    \item A future collider
-    \item 3 options
-  \end{itemize}
-    \centering
-    \includegraphics[width=0.9\textwidth]{Figures/cernFCC}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{itemize}
+        \item A future possibility for the post-LHC era
+        \item 3 options of circular colliders
+          \begin{itemize}
+            \item FCC-ee: electron - positron collisions
+            \item FCC-hh: proton - proton collisions
+            \item FCC-eh: electron - proton collisions
+          \end{itemize}
+        \item $\sim$100~km tunnel in Geneva area
+        \item FCC-ee collider parameters:
+      \end{itemize}
+        \centering
+      	\begin{tabular}{l c c c c}
+        	\toprule
+      	   Stages & Z & WW & H (ZH) & t\={t} \\
+      	   \midrule
+           Beam energy [GeV] & 45.6 & 80 & 120 & 182.5 \\
+           Average bunch spacing [ns] & 19.6 & 163 & 994 & 3396\\
+      	   \bottomrule
+      	\end{tabular}
+
+    \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=0.9\textwidth]{Figures/cernFCC}
+  \end{columns}
 
   \end{tcolorbox}
 \end{textblock}
-%
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                 %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{52}(17.5, 14)
+\begin{textblock}{40}(41, 14)
   \begin{tcolorbox}[title=FCCSW: Physics and Detector simulations with FCCSW]
 
-  \centering
-  	\smartdiagramset{back arrow disabled=true}
-  	% \scalebox{5}{
-  	  	\smartdiagram[flow diagram:horizontal]
-  	  	{%
-  	    	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
-  	  	}
-    	% }
+  \begin{itemize}
+    \item Common software for all FCC experiments (ee, hh \& eh)
+    \item Detector and physics studies
+      \begin{itemize}
+        \item Fast \& full simulations
+        \item One software stack from event generation to physics analysis
+      \end{itemize}
+    \item Collaborative approach with other CERN experiments
+      \begin{itemize}
+        \item Gaudi from LHC
+        \item DD4hep from CLIC \& LHCb
+        \item New solutions where needed
+      \end{itemize}
+  \end{itemize}
 
+  \vspace{1cm}
+  
+  \centering
+   % \scalebox{2}{
+  	 \smartdiagramset{back arrow disabled=true, module minimum width=4cm, text width=4cm, module minimum height=2cm, module x sep=6cm}
+  	 	\smartdiagram[flow diagram:horizontal]
+  	 	{%
+  	   	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
+  	 	}
+     % }
   \end{tcolorbox}
 \end{textblock}
+
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % %%%                             Block                                %%%
+% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{textblock}{36.8}(22, 27)
+%   \begin{tcolorbox}[title=The IDEA detector concept]
+%
+%   \centering
+%   \includegraphics[width=0.5\textwidth]{../figures/FCCeeIDEAConcept}
+%
+%   \end{tcolorbox}
+% \end{textblock}
+%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                                %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{36.8}(22, 27)
-  \begin{tcolorbox}[title=The IDEA detector concept]
-
-  \centering
-  \includegraphics[width=0.5\textwidth]{../figures/FCCeeIDEAConcept}
-
-  \end{tcolorbox}
-\end{textblock}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                             Block                                %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{69}(0.5, 36.5)
-  \begin{tcolorbox}[title=Simulation of the drift chamber within FCCSW]
-
-  \begin{columns}
-  \column{0.33\textwidth}
-    \begin{tikzpicture}
-      \node[anchor=south west,inner sep=0] (image) at
-      (0,0){\includegraphics[width=5in]{../figures/FCCeeIDEA_IR}};
-      \begin{scope}[x={(image.south east)},y={(image.north west)}]
-
-      \draw[->, thick](0.2, 0.7) -- (0.4, 0.7);
-      \node[left] at (0.2, 0.7) {Drift chamber};
-
-      \draw[->, thick](-0.1, 0.25) -- (0., 0.25);
-      \node[left] at (-0.1, 0.25) {Beam pipe};
-
-      \draw[->, thick](0.1, 0.4) -- (0.2, 0.4);
-      \node[left] at (0.1, 0.4) {Solenoid shielding};
-
-      \draw[->, thick](0.6, 0.05) -- (0.48, 0.4);
-      \node[below] at (0.6, 0.05) {Luminosity calorimeter};
-
-      \draw[->, thick](0.8, 0.2) -- (0.58, 0.5);
-      \node[below] at (0.8, 0.2) {Vertex detector};
-
-      \end{scope}
-    \end{tikzpicture}
-
-  \column{0.33\textwidth}
-    \centering
-    \includegraphics[width=5in]{Figures/allHits}
-
-  \column{0.33\textwidth}
-    \centering
-    \includegraphics[width=5in]{Figures/numWires}
-
-  \end{columns}
-
-
-  \end{tcolorbox}
-\end{textblock}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Block %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{34.2}(0.5, 50)
-  \begin{tcolorbox}[title=Beam-induced backgrounds]
-
-  \begin{columns}
-    \column{0.5\textwidth}
-
-    \column{0.5\textwidth}
-    \centering
-    \includegraphics[width=5in]{../figures/pairs_R_Z}
-  \end{columns}
-
-  \end{tcolorbox}
-\end{textblock}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Block %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{34.2}(35, 50)
-  \begin{tcolorbox}[title=Beam-induced backgrounds]
-
-  \centering
-	\begin{tabular}{l c c}
-  	\toprule
-	   Background & \multicolumn{2}{c}{Average occupancy} \\
-	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
-	   \midrule
-	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
-	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
-	   Synchrotron radiation & - & 0.2\% \\
-	   \bottomrule
-	\end{tabular}
-
-  \end{tcolorbox}
-\end{textblock}
+% \begin{textblock}{69}(0.5, 36.5)
+%   \begin{tcolorbox}[title=Simulation of the drift chamber within FCCSW]
+%
+%   \begin{columns}
+%   \column{0.33\textwidth}
+%     \begin{tikzpicture}
+%       \node[anchor=south west,inner sep=0] (image) at
+%       (0,0){\includegraphics[width=5in]{../figures/FCCeeIDEA_IR}};
+%       \begin{scope}[x={(image.south east)},y={(image.north west)}]
+%
+%       \draw[->, thick](0.2, 0.7) -- (0.4, 0.7);
+%       \node[left] at (0.2, 0.7) {Drift chamber};
+%
+%       \draw[->, thick](-0.1, 0.25) -- (0., 0.25);
+%       \node[left] at (-0.1, 0.25) {Beam pipe};
+%
+%       \draw[->, thick](0.1, 0.4) -- (0.2, 0.4);
+%       \node[left] at (0.1, 0.4) {Solenoid shielding};
+%
+%       \draw[->, thick](0.6, 0.05) -- (0.48, 0.4);
+%       \node[below] at (0.6, 0.05) {Luminosity calorimeter};
+%
+%       \draw[->, thick](0.8, 0.2) -- (0.58, 0.5);
+%       \node[below] at (0.8, 0.2) {Vertex detector};
+%
+%       \end{scope}
+%     \end{tikzpicture}
+%
+%   \column{0.33\textwidth}
+%     \centering
+%     \includegraphics[width=5in]{Figures/allHits}
+%
+%   \column{0.33\textwidth}
+%     \centering
+%     \includegraphics[width=5in]{Figures/numWires}
+%
+%   \end{columns}
+%
+%
+%   \end{tcolorbox}
+% \end{textblock}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% Block %%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{textblock}{34.2}(0.5, 50)
+%   \begin{tcolorbox}[title=Beam-induced backgrounds]
+%
+%   \begin{columns}
+%     \column{0.5\textwidth}
+%
+%     \column{0.5\textwidth}
+%     \centering
+%     \includegraphics[width=5in]{../figures/pairs_R_Z}
+%   \end{columns}
+%
+%   \end{tcolorbox}
+% \end{textblock}
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% Block %%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{textblock}{34.2}(35, 50)
+%   \begin{tcolorbox}[title=Beam-induced backgrounds]
+%
+%   \centering
+% 	\begin{tabular}{l c c}
+%   	\toprule
+% 	   Background & \multicolumn{2}{c}{Average occupancy} \\
+% 	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
+% 	   \midrule
+% 	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
+% 	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
+% 	   Synchrotron radiation & - & 0.2\% \\
+% 	   \bottomrule
+% 	\end{tabular}
+%
+%   \end{tcolorbox}
+% \end{textblock}
 
 %--------------------------------------------%
 \end{frame}
