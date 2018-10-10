@@ -198,69 +198,116 @@
 
   \end{tcolorbox}
 \end{textblock}
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%                             Block                                %%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{textblock}{69}(41, 36)
-%   \begin{tcolorbox}[title=Simulation of the drift chamber within FCCSW]
-%
-%   \begin{columns}
-%   \column{0.33\textwidth}
-%     \begin{tikzpicture}
-%       \node[anchor=south west,inner sep=0] (image) at
-%       (0,0){\includegraphics[width=5in]{../figures/FCCeeIDEA_IR}};
-%       \begin{scope}[x={(image.south east)},y={(image.north west)}]
-%
-%       \draw[->, thick](0.2, 0.7) -- (0.4, 0.7);
-%       \node[left] at (0.2, 0.7) {Drift chamber};
-%
-%       \draw[->, thick](-0.1, 0.25) -- (0., 0.25);
-%       \node[left] at (-0.1, 0.25) {Beam pipe};
-%
-%       \draw[->, thick](0.1, 0.4) -- (0.2, 0.4);
-%       \node[left] at (0.1, 0.4) {Solenoid shielding};
-%
-%       \draw[->, thick](0.6, 0.05) -- (0.48, 0.4);
-%       \node[below] at (0.6, 0.05) {Luminosity calorimeter};
-%
-%       \draw[->, thick](0.8, 0.2) -- (0.58, 0.5);
-%       \node[below] at (0.8, 0.2) {Vertex detector};
-%
-%       \end{scope}
-%     \end{tikzpicture}
-%
-%   \column{0.33\textwidth}
-%     \centering
-%     \includegraphics[width=5in]{Figures/allHits}
-%
-%   \column{0.33\textwidth}
-%     \centering
-%     \includegraphics[width=5in]{Figures/numWires}
-%
-%   \end{columns}
-%
-%
-%   \end{tcolorbox}
-% \end{textblock}
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%% Block %%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{textblock}{34.2}(0.5, 50)
-%   \begin{tcolorbox}[title=Beam-induced backgrounds]
-%
-%   \begin{columns}
-%     \column{0.5\textwidth}
-%
-%     \column{0.5\textwidth}
-%     \centering
-%     \includegraphics[width=5in]{../figures/pairs_R_Z}
-%   \end{columns}
-%
-%   \end{tcolorbox}
-% \end{textblock}
-%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%                             Block                                %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock}{40}(41, 30)
+  \begin{tcolorbox}[title=Simulation of the drift chamber within FCCSW]
+
+  \begin{itemize}
+    \item The IDEA detector as simulated with FCCSW
+  \end{itemize}
+  % \begin{columns}
+  % \column{0.5\textwidth}
+  \begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] (image) at
+    (0,0){\includegraphics[width=\textwidth]{Figures/FCCeeIDEA_IR}};
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]
+
+		% \draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
+    %    \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
+    %    \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10)
+    %     {0.\y}; }
+
+
+		\node[left] at (0.6, 0.7) {\textbf{Drift Chamber}};
+
+		\draw[->, thick](0.05, 0.25) -- (0.05, 0.1);
+		\node[above] at (0.05, 0.25) {\textbf{Beam Pipe}};
+
+		\draw[->, thick](0.15, 0.45) -- (0.15, 0.22);
+		\node[above] at (0.15, 0.45) {\textbf{Solenoid Shielding}};
+
+		\draw[->, thick](0.2, 0.7) -- (0.42, 0.4);
+		\node[above] at (0.2, 0.7) {\textbf{Tungsten Shielding}};
+
+		\draw[->, thick](0.55, 0.05) -- (0.48, 0.4);
+		\node[below] at (0.55, 0.05) {\textbf{Luminosity Calorimeter}};
+
+		\draw[->, thick](0.75, 0.2) -- (0.58, 0.5);
+		\node[below] at (0.75, 0.2) {\textbf{Vertex Detector}};
+
+	\end{scope}
+  \end{tikzpicture}
+
+  % \column{0.5\textwidth}
+  % \end{columns}
+
+
+  \end{tcolorbox}
+\end{textblock}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Block %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock}{40}(0.5, 55)
+  \begin{tcolorbox}[title=The simulation of the drift chamber \& coverage]
+
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{itemize}
+        \item The first layer of the drift chamber
+        \item Wires are illustrated using different colors
+        \item The wires are rotated by a stereo angle to increase the hit resolution
+      \end{itemize}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/allHits}
+
+    \column{0.5\textwidth}
+      \begin{itemize}
+        \item In the barrel region, the drift chamber has a high coverage of $\sim 112$ wires in average.
+        \item In the forward region, silicon disks are foresean to increase the number of layers measuring the tracks.
+      \end{itemize}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/numWires}
+  \end{columns}
+
+  \end{tcolorbox}
+\end{textblock}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Block %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock}{40}(41, 55)
+  \begin{tcolorbox}[title=Main sources of beam-induced backgrounds]
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item Three main sources of beam-induced backgrounds
+      \begin{itemize}
+        \item Incoherent $e^+e^-$ pairs du to bremstrahlung photons $\Rightarrow$ highest source of background
+        \item $\gamma\gamma\rightarrow$ hadrons $\Rightarrow$ Expected to have a very low impact
+        \item Synchrotron radiation $\Rightarrow$ Dictates the design of the interaction region (IR)
+          \begin{itemize}
+            \item Defines the beampipe radius, the design of the shielding (in Tungesten)
+          \end{itemize}
+      \end{itemize}
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item The trajectory of the $e^+e^−$ pairs in a 2~T magnetic field.
+    \end{itemize}
+    \centering
+    \includegraphics[width=\textwidth]{../figures/pairs_R_Z}
+  \end{columns}
+
+  \end{tcolorbox}
+\end{textblock}
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%% Block %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
