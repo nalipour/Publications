@@ -1,8 +1,8 @@
 \documentclass[final,xcolor={dvipsnames,svgnames,x11names,table}]{beamer}
 \usetheme{RJH}
 %\usetheme{Boadilla}
-%\usepackage[orientation=portrait,size=a1,scale=1.3]{beamerposter}
-\usepackage[orientation=portrait, size=custom, width=84.1, height=118.9, scale=1]{beamerposter}
+\usepackage[orientation=portrait,size=a0,scale=1.3]{beamerposter}
+% \usepackage[orientation=portrait, size=custom, width=84.1, height=118.9, scale=1]{beamerposter}
 \usepackage[absolute,overlay]{textpos}
 \usepackage{pifont}
 \usepackage{ulem}
@@ -251,7 +251,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(0.5, 55)
+\begin{textblock}{40}(0.5, 62)
   \begin{tcolorbox}[title=The simulation of the drift chamber \& coverage]
 
   \begin{columns}
@@ -290,9 +290,10 @@
       \begin{itemize}
         \item Incoherent $e^+e^-$ pairs du to bremstrahlung photons $\Rightarrow$ highest source of background
         \item $\gamma\gamma\rightarrow$ hadrons $\Rightarrow$ Expected to have a very low impact
-        \item Synchrotron radiation $\Rightarrow$ Dictates the design of the interaction region (IR)
+        \item Synchrotron radiation (SR) $\Rightarrow$ Dictates the design of the interaction region (IR)
           \begin{itemize}
             \item Defines the beampipe radius, the design of the shielding (in Tungesten)
+            \item Mostly stopped by the shielding, few SR photons can hit the detector
           \end{itemize}
       \end{itemize}
     \end{itemize}
@@ -308,26 +309,26 @@
   \end{tcolorbox}
 \end{textblock}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%% Block %%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{textblock}{34.2}(35, 50)
-%   \begin{tcolorbox}[title=Beam-induced backgrounds]
-%
-%   \centering
-% 	\begin{tabular}{l c c}
-%   	\toprule
-% 	   Background & \multicolumn{2}{c}{Average occupancy} \\
-% 	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
-% 	   \midrule
-% 	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
-% 	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
-% 	   Synchrotron radiation & - & 0.2\% \\
-% 	   \bottomrule
-% 	\end{tabular}
-%
-%   \end{tcolorbox}
-% \end{textblock}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Block %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{textblock}{40}(41, 80)
+  \begin{tcolorbox}[title=Summary of beam-induced backgrounds]
+
+  \centering
+	\begin{tabular}{l c c}
+  	\toprule
+	   Background & \multicolumn{2}{c}{Average occupancy} \\
+	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
+	   \midrule
+	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
+	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
+	   Synchrotron radiation & - & 0.2\% \\
+	   \bottomrule
+	\end{tabular}
+
+  \end{tcolorbox}
+\end{textblock}
 
 %--------------------------------------------%
 \end{frame}
