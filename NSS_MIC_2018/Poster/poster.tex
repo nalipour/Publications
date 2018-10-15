@@ -78,10 +78,10 @@
 \begin{document}
 \begin{frame}
 
-\begin{textblock}{2}(0.8,0.25)
+\begin{textblock}{4}(0.8,0.25)
 \includegraphics[width=4.\textwidth]{Figures/logo_cern.pdf}
 \end{textblock}
-\begin{textblock}{6}(71,0.25)
+\begin{textblock}{10}(71,0.25)
 \includegraphics[width=1.5\textwidth]{Figures/FCC-logo}
 \end{textblock}
 \begin{textblock}{20}(4.5, 11)
@@ -92,11 +92,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                             Block                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(0.5, 14)
+\begin{textblock}{43}(0.5, 14)
   \begin{tcolorbox}[title=The Future Circular Collider Experiment (FCC)]
 
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.6\textwidth}
       \begin{itemize}
         \item A future possibility for the post-LHC era
         \item 3 options of circular colliders
@@ -109,7 +109,7 @@
         \item FCC-ee collider parameters:
       \end{itemize}
         \centering
-      	\begin{tabular}{l c c c c}
+      	\begin{tabular}{| l | c | c | c | c |}
         	\toprule
       	   Stages & Z & WW & H (ZH) & t\={t} \\
       	   \midrule
@@ -118,7 +118,7 @@
       	   \bottomrule
       	\end{tabular}
 
-    \column{0.5\textwidth}
+    \column{0.4\textwidth}
       \centering
       \includegraphics[width=0.9\textwidth]{Figures/cernFCC}
   \end{columns}
@@ -129,7 +129,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                 %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(41, 14)
+\begin{textblock}{39}(44, 14)
   \begin{tcolorbox}[title=FCCSW: Physics and Detector simulations with FCCSW]
 
   \begin{itemize}
@@ -160,23 +160,23 @@
   	   	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
   	 	}
      % }
+     \vspace{0.5cm}
   \end{tcolorbox}
 \end{textblock}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                                %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(0.5, 36)
+\begin{textblock}{43}(0.5, 34)
   \begin{tcolorbox}[title=The IDEA detector concept for FCC-ee]
+
+  \begin{itemize}
+    \item The IDEA detector is one of the two detector concepts for the FCC-ee experiment
+  \end{itemize}
 
   \begin{columns}
     \column{0.5\textwidth}
       \begin{itemize}
-        \item Two detector concepts for the FCC-ee collider
-          \begin{enumerate}
-            \item The IDEA detector concept (focus of this poster)
-            \item A CLIC-based (silicon-based) detector
-          \end{enumerate}
         \item Ultimate goal for the IDEA detector concept
           \begin{itemize}
             \item Vertex detector: MAPS
@@ -202,8 +202,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%                             Block                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(41, 30)
-  \begin{tcolorbox}[title=Simulation of the drift chamber within FCCSW]
+\begin{textblock}{39}(44, 30)
+  \begin{tcolorbox}[title=Simulation of the IDEA drift chamber within FCCSW]
 
   \begin{itemize}
     \item The IDEA detector as simulated with FCCSW
@@ -212,7 +212,7 @@
   % \column{0.5\textwidth}
   \begin{tikzpicture}
     \node[anchor=south west,inner sep=0] (image) at
-    (0,0){\includegraphics[width=\textwidth]{Figures/FCCeeIDEA_IR}};
+    (0,0){\includegraphics[width=0.9\textwidth]{Figures/FCCeeIDEA_IR}};
     \begin{scope}[x={(image.south east)},y={(image.north west)}]
 
 		% \draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
