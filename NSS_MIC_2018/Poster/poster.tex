@@ -47,7 +47,7 @@
 
 
 \title{\Huge{Design of a drift chamber tracking system for the IDEA experiment at FCC-ee}}
-\author{\vspace*{1.5cm}{\Large{\underline{Niloufar Alipour Tehrani (CERN)}, Benedikt Hegner, Giovanni Francesco Tassielli, Francesco Grancagnolo}\\\vspace*{1cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference, Sydney, Australia}}}}
+\author{\vspace*{1.5cm}{\Large{\underline{Niloufar Alipour Tehrani (CERN)}, Benedikt Hegner, Giovanni Francesco Tassielli, Francesco Grancagnolo, P. Janot, A. M. Kolano, G. Voutsinas}\\\vspace*{1cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference, Sydney, Australia}}}}
 % \footer{}
 \institute{CERN}
 \date{}
@@ -78,14 +78,11 @@
 \begin{document}
 \begin{frame}
 
-\begin{textblock}{4}(0.8,0.25)
-\includegraphics[width=4.\textwidth]{Figures/logo_cern.pdf}
+\begin{textblock}{4}(0.8, 5)
+\includegraphics[width=\textwidth]{Figures/logo_cern.pdf}
 \end{textblock}
-\begin{textblock}{10}(71,0.25)
-\includegraphics[width=1.5\textwidth]{Figures/FCC-logo}
-\end{textblock}
-\begin{textblock}{20}(4.5, 11)
-%\textcolor{red}{\small{\url{http://clicdp.web.cern.ch/}}}
+\begin{textblock}{10}(71, 5)
+\includegraphics[width=\textwidth]{Figures/FCC-logo}
 \end{textblock}
 
 
@@ -203,7 +200,7 @@
 %%%                             Block                                %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{textblock}{39}(44, 30)
-  \begin{tcolorbox}[title=Simulation of the IDEA drift chamber within FCCSW]
+  \begin{tcolorbox}[title=The IDEA detector as simulated with FCCSW]
 
   \begin{itemize}
     \item The IDEA detector as simulated with FCCSW
@@ -252,7 +249,34 @@
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{textblock}{40}(0.5, 62)
-  \begin{tcolorbox}[title=The simulation of the drift chamber \& coverage]
+  \begin{tcolorbox}[title=The parameters of the drift chamber]
+
+  \begin{columns}
+    \column{0.5\textwidth}
+
+      \begin{itemize}
+        \item The parameters of the drift chamber
+      \end{itemize}
+
+      \begin{tabular}{l l}
+        \toprule
+          Gas & $90~\%$ Helium \&\\
+          & $10~\%$ isobutane ($\text{C}_{4}\text{H}_{10}$) \\
+          Length & 4500~mm \\
+          Inner radius & 345~mm \\
+          Outer radius & 2000~mm\\
+          Nb. layer & 112 \\
+          Cell size & 12~mm - 14.7~mm \\
+          Number of sensitive wires & 56448 \\
+          Single cell resolution & 0.1~mm \\
+          Longitudinal resolution & 1~mm \\
+        \bottomrule
+      \end{tabular}
+
+    \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{Figures/DriftChamber}
+  \end{columns}
 
   \begin{columns}
     \column{0.5\textwidth}
@@ -309,58 +333,60 @@
   \end{tcolorbox}
 \end{textblock}
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% Block %%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{textblock}{40}(41, 77)
+%   \begin{tcolorbox}[title=Summary of beam-induced backgrounds \& conclusions]
+%
+%   \centering
+% 	\begin{tabular}{l c c}
+%   	\toprule
+% 	   Background & \multicolumn{2}{c}{Average occupancy} \\
+% 	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
+% 	   \midrule
+% 	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
+% 	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
+% 	   Synchrotron radiation & - & 0.2\% \\
+% 	   \bottomrule
+% 	\end{tabular}
+%
+%   \begin{itemize}
+%     \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
+%   \end{itemize}
+%
+%   \end{tcolorbox}
+% \end{textblock}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(41, 77)
-  \begin{tcolorbox}[title=Summary of beam-induced backgrounds \& conclusions]
-
-  \centering
-	\begin{tabular}{l c c}
-  	\toprule
-	   Background & \multicolumn{2}{c}{Average occupancy} \\
-	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
-	   \midrule
-	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
-	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
-	   Synchrotron radiation & - & 0.2\% \\
-	   \bottomrule
-	\end{tabular}
-
-  \begin{itemize}
-    \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
-  \end{itemize}
-
-  \end{tcolorbox}
-\end{textblock}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Block %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{80}(0.5, 90)
+\begin{textblock}{50}(30, 90)
   \begin{tcolorbox}[title=3 main sources of beam-induced backgrounds at the top stage]
 
   \begin{columns}
-    \column{0.33\textwidth}
+    \column{0.5\textwidth}
     \begin{itemize}
       \item Incoherent $e^+e^-$ pairs
     \end{itemize}
     \centering
-    \includegraphics[width=\textwidth]{Figures/IPC_top}
+    \includegraphics[width=\textwidth]{Figures/incoherent_top_Z.pdf}
 
-    \column{0.33\textwidth}
-    \begin{itemize}
-      \item $\gamma\gamma\rightarrow$ hadrons
-    \end{itemize}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/Hadrons_top}
+    \column{0.5\textwidth}
+    \begin{tabular}{l c c}
+      \toprule
+       Background & \multicolumn{2}{c}{Average occupancy} \\
+        & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
+       \midrule
+       $e^+e^-$ pair background & 1.1\% & 2.9\% \\
+       $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
+       Synchrotron radiation & - & 0.2\% \\
+       \bottomrule
+    \end{tabular}
 
-    \column{0.33\textwidth}
     \begin{itemize}
-      \item $\gamma\gamma\rightarrow$ hadrons
+      \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
     \end{itemize}
-    \centering
-    \includegraphics[width=\textwidth]{Figures/SR_top}
 
   \end{columns}
 
