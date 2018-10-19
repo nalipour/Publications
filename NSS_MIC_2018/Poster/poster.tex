@@ -164,16 +164,13 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                                %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{43}(0.5, 34)
+\begin{textblock}{83}(0.5, 34)
   \begin{tcolorbox}[title=The IDEA detector concept for FCC-ee]
 
-  \begin{itemize}
-    \item The IDEA detector is one of the two detector concepts for the FCC-ee experiment
-  \end{itemize}
-
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.3\textwidth}
       \begin{itemize}
+        \item The IDEA detector is one of the two detector concepts for the FCC-ee
         \item Ultimate goal for the IDEA detector concept
           \begin{itemize}
             \item Vertex detector: MAPS
@@ -187,59 +184,41 @@
       \end{itemize}
 
 
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
       \centering
       \includegraphics[width=\textwidth]{../figures/FCCeeIDEAConcept}
+
+    \column{0.45\textwidth}
+
+    \begin{itemize}
+      \item The IDEA detector as simulated with FCCSW
+    \end{itemize}
+
+    \centering
+    \begin{tikzpicture}
+      \node[anchor=south west,inner sep=0] (image) at
+      (0,0){\includegraphics[width=\textwidth]{Figures/FCCeeIDEA_IR}};
+      \begin{scope}[x={(image.south east)},y={(image.north west)}]
+      \node[left] at (0.6, 0.7) {\textbf{Drift Chamber}};
+
+      \draw[->, thick](0.05, 0.25) -- (0.05, 0.1);
+      \node[above] at (0.05, 0.25) {\textbf{Beam Pipe}};
+
+      \draw[->, thick](0.15, 0.45) -- (0.15, 0.22);
+      \node[above] at (0.15, 0.45) {\textbf{Solenoid Shielding}};
+
+      \draw[->, thick](0.2, 0.7) -- (0.42, 0.4);
+      \node[above] at (0.2, 0.7) {\textbf{Tungsten Shielding}};
+
+      \draw[->, thick](0.55, 0.05) -- (0.48, 0.4);
+      \node[below] at (0.55, 0.05) {\textbf{Luminosity Calorimeter}};
+
+      \draw[->, thick](0.75, 0.2) -- (0.58, 0.5);
+      \node[below] at (0.75, 0.2) {\textbf{Vertex Detector}};
+
+    \end{scope}
+    \end{tikzpicture}
   \end{columns}
-
-
-  \end{tcolorbox}
-\end{textblock}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                             Block                                %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{39}(44, 30)
-  \begin{tcolorbox}[title=The IDEA detector as simulated with FCCSW]
-
-  \begin{itemize}
-    \item The IDEA detector as simulated with FCCSW
-  \end{itemize}
-  % \begin{columns}
-  % \column{0.5\textwidth}
-  \begin{tikzpicture}
-    \node[anchor=south west,inner sep=0] (image) at
-    (0,0){\includegraphics[width=0.9\textwidth]{Figures/FCCeeIDEA_IR}};
-    \begin{scope}[x={(image.south east)},y={(image.north west)}]
-
-		% \draw[help lines,xstep=.1,ystep=.1] (0, 0) grid (1,1);
-    %    \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }
-    %    \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10)
-    %     {0.\y}; }
-
-
-		\node[left] at (0.6, 0.7) {\textbf{Drift Chamber}};
-
-		\draw[->, thick](0.05, 0.25) -- (0.05, 0.1);
-		\node[above] at (0.05, 0.25) {\textbf{Beam Pipe}};
-
-		\draw[->, thick](0.15, 0.45) -- (0.15, 0.22);
-		\node[above] at (0.15, 0.45) {\textbf{Solenoid Shielding}};
-
-		\draw[->, thick](0.2, 0.7) -- (0.42, 0.4);
-		\node[above] at (0.2, 0.7) {\textbf{Tungsten Shielding}};
-
-		\draw[->, thick](0.55, 0.05) -- (0.48, 0.4);
-		\node[below] at (0.55, 0.05) {\textbf{Luminosity Calorimeter}};
-
-		\draw[->, thick](0.75, 0.2) -- (0.58, 0.5);
-		\node[below] at (0.75, 0.2) {\textbf{Vertex Detector}};
-
-	\end{scope}
-  \end{tikzpicture}
-
-  % \column{0.5\textwidth}
-  % \end{columns}
 
 
   \end{tcolorbox}
@@ -248,11 +227,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(0.5, 62)
-  \begin{tcolorbox}[title=The parameters of the drift chamber]
+\begin{textblock}{82}(0.5, 60)
+  \begin{tcolorbox}[title=The drift chamber]
 
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
 
       \begin{itemize}
         \item The parameters of the drift chamber
@@ -273,13 +252,11 @@
         \bottomrule
       \end{tabular}
 
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
       \centering
       \includegraphics[width=\textwidth]{Figures/DriftChamber}
-  \end{columns}
 
-  \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
       \begin{itemize}
         \item The first layer of the drift chamber
         \item Wires are illustrated using different colors
@@ -288,7 +265,7 @@
       \centering
       \includegraphics[width=\textwidth]{Figures/allHits}
 
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
       \begin{itemize}
         \item In the barrel region, the drift chamber has a high coverage of $\sim 112$ wires in average.
         \item In the forward region, silicon disks are foresean to increase the number of layers measuring the tracks.
@@ -304,7 +281,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(41, 55)
+\begin{textblock}{40}(0.5, 90)
   \begin{tcolorbox}[title=Main sources of beam-induced backgrounds]
 
   \begin{columns}
@@ -333,30 +310,6 @@
   \end{tcolorbox}
 \end{textblock}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%% Block %%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \begin{textblock}{40}(41, 77)
-%   \begin{tcolorbox}[title=Summary of beam-induced backgrounds \& conclusions]
-%
-%   \centering
-% 	\begin{tabular}{l c c}
-%   	\toprule
-% 	   Background & \multicolumn{2}{c}{Average occupancy} \\
-% 	    & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
-% 	   \midrule
-% 	   $e^+e^-$ pair background & 1.1\% & 2.9\% \\
-% 	   $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
-% 	   Synchrotron radiation & - & 0.2\% \\
-% 	   \bottomrule
-% 	\end{tabular}
-%
-%   \begin{itemize}
-%     \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
-%   \end{itemize}
-%
-%   \end{tcolorbox}
-% \end{textblock}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
@@ -366,6 +319,7 @@
 
   \begin{columns}
     \column{0.5\textwidth}
+
     \begin{itemize}
       \item Incoherent $e^+e^-$ pairs
     \end{itemize}
