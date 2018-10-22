@@ -54,8 +54,7 @@
 %\footimage{}
 
 \usepackage[backend=bibtex,style=numeric-comp,firstinits=true]{biblatex}
-\addbibresource{../ref.bib}
-% \bibliography{../ref.bib}
+\addbibresource{ref.bib}
 % \setbeamertemplate{bibliography item}[text]
 % \renewcommand*{\bibfont}{\footnotesize}
 
@@ -143,8 +142,8 @@
       \end{itemize}
     \item Collaborative approach with other CERN experiments \vspace{0.5cm}
       \begin{itemize}
-        \item Gaudi from LHC
-        \item DD4hep from CLIC \& LHCb
+        \item Gaudi from LHC~\cite{Gaudi}
+        \item DD4hep~\cite{DD4hep} from CLIC \& LHCb
         \item New solutions where needed
       \end{itemize}
     \item The simulation pipeline
@@ -318,56 +317,40 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{80}(0.5, 90)
-  \begin{tcolorbox}[title=Main sources of beam-induced backgrounds at the FCC-ee and the impact on the IDEA drift chamber]
+\begin{textblock}{43}(0.5, 85)
+  \begin{tcolorbox}[title=Beam-induced backgrounds and the impact on the drift chamber]
+
+  \begin{itemize}
+    \item Three main sources of beam-induced backgrounds at FCC-ee~~\cite{Voutsinas:2017eca} \vspace{0.5cm}
+    \begin{itemize}
+      \item \textbf{Incoherent $e^+e^-$ pairs} due to bremstrahlung photons $\Rightarrow$ highest source of background \vspace{0.2cm}
+      \item \textbf{$\gamma\gamma\rightarrow$ hadrons} $\Rightarrow$ Expected to have a very low impact \vspace{0.2cm}
+      \item \textbf{Synchrotron radiation (SR)} $\Rightarrow$ Dictates the design of the interaction region (IR) \vspace{0.2cm}
+        \begin{itemize}
+          \item Defines the beampipe radius, the design of the shielding (in Tungesten)
+          \item Mostly stopped by the shielding, few SR photons can hit the detector
+        \end{itemize}
+    \end{itemize}
+  \end{itemize}
 
   \begin{columns}
-    \column{0.25\textwidth}
-    \begin{itemize}
-      \item Three main sources of beam-induced backgrounds
+    \column{0.5\textwidth}
       \begin{itemize}
-        \item Incoherent $e^+e^-$ pairs du to bremstrahlung photons $\Rightarrow$ highest source of background
-        \item $\gamma\gamma\rightarrow$ hadrons $\Rightarrow$ Expected to have a very low impact
-        \item Synchrotron radiation (SR) $\Rightarrow$ Dictates the design of the interaction region (IR)
-          \begin{itemize}
-            \item Defines the beampipe radius, the design of the shielding (in Tungesten)
-            \item Mostly stopped by the shielding, few SR photons can hit the detector
-          \end{itemize}
+        \item The trajectory of the $e^+e^−$ pairs in a 2~T magnetic field (using helix extrapolation).
       \end{itemize}
-    \end{itemize}
+      \centering
+      \includegraphics[width=\textwidth]{../figures/pairs_R_Z}
 
-    \column{0.25\textwidth}
-    \begin{itemize}
-      \item The trajectory of the $e^+e^−$ pairs in a 2~T magnetic field.
-    \end{itemize}
-    \centering
-    \includegraphics[width=\textwidth]{../figures/pairs_R_Z}
-
-    \column{0.25\textwidth}
+    \column{0.5\textwidth}
 
     \begin{itemize}
-      \item Incoherent $e^+e^-$ pairs
+      \item Simulation of the hits produced in the drift chamber due to incoherent $e^+e^-$ pairs (using FCCSW)
     \end{itemize}
     \centering
     \includegraphics[width=\textwidth]{Figures/incoherent_top_Z.pdf}
 
-    \column{0.25\textwidth}
-    \begin{adjustbox}{max width=\textwidth}
-      \begin{tabular}{l c c}
-        \toprule
-         Background & \multicolumn{2}{c}{Average occupancy} \\
-          & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
-         \midrule
-         $e^+e^-$ pair background & 1.1\% & 2.9\% \\
-         $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
-         Synchrotron radiation & - & 0.2\% \\
-         \bottomrule
-      \end{tabular}
-    \end{adjustbox}
 
-    \begin{itemize}
-      \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
-    \end{itemize}
+
 
   \end{columns}
 
@@ -377,7 +360,36 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%% Block %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{textblock}{43}(40, 90)
+ \begin{textblock}{39.5}(44, 93)
+   \begin{tcolorbox}[title=Conclusions]
+
+   \begin{itemize}
+     \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
+     \item Summary of the occupancy of the drift chamber due to the beam-induced backgrounds
+   \end{itemize}
+   \centering
+   \begin{adjustbox}{max width=\textwidth}
+     \begin{tabular}{l c c}
+       \toprule
+        Background & \multicolumn{2}{c}{Average occupancy} \\
+         & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
+        \midrule
+        $e^+e^-$ pair background & 1.1\% & 2.9\% \\
+        $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
+        Synchrotron radiation & - & 0.2\% \\
+        \bottomrule
+     \end{tabular}
+   \end{adjustbox}
+
+
+
+  \end{tcolorbox}
+ \end{textblock}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% Block %%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{textblock}{39.5}(44, 108)
    \begin{tcolorbox}[title=References]
 
    \printbibliography
