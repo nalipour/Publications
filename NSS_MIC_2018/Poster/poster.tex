@@ -232,12 +232,21 @@
   \begin{tcolorbox}[title=The drift chamber]
 
   \begin{columns}
-    \column{0.25\textwidth}
+    \column{0.5\textwidth}
+    \begin{columns}
+    \column{0.5\textwidth}
 
       \begin{itemize}
         \item The parameters of the drift chamber
+          \begin{itemize}
+            \item The gas volume is divided into a set of hyperboloid shells.
+            \item The wires are rotated with a stereo angle of 0.1~radians to improve the longitudinal resolution along them.
+          \end{itemize}
       \end{itemize}
-      \begin{adjustbox}{max width=\textwidth}
+
+    \column{0.5\textwidth}
+      \centering
+      \begin{adjustbox}{max width=0.8\textwidth}
         \begin{tabular}{l l}
           \toprule
             Gas & $90~\%$ Helium \&\\
@@ -254,26 +263,32 @@
         \end{tabular}
       \end{adjustbox}
 
-    \column{0.25\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{Figures/DriftChamber}
+    \end{columns}
 
-    \column{0.25\textwidth}
-      \begin{itemize}
-        \item The first layer of the drift chamber
-        \item Wires are illustrated using different colors
-        \item The wires are rotated by a stereo angle to increase the hit resolution
-      \end{itemize}
-      \centering
-      \includegraphics[width=\textwidth]{Figures/allHits}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/DriftChamber}
 
-    \column{0.25\textwidth}
-      \begin{itemize}
-        \item In the barrel region, the drift chamber has a high coverage of $\sim 112$ wires in average.
-        \item In the forward region, silicon disks are foresean to increase the number of layers measuring the tracks.
-      \end{itemize}
-      \centering
-      \includegraphics[width=\textwidth]{Figures/numWires}
+
+    \column{0.5\textwidth}
+      \begin{columns}
+      \column{0.5\textwidth}
+        \begin{itemize}
+          \item The first layer of the drift chamber
+          \item Wires are illustrated using different colors
+          \item The wires are rotated by a stereo angle to increase the hit resolution
+        \end{itemize}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/allHits}
+
+      \column{0.5\textwidth}
+        \begin{itemize}
+          \item In the barrel region, the drift chamber has a high coverage of $\sim 112$ wires in average.
+          \item In the forward region, silicon disks are foresean to increase the number of layers measuring the tracks.
+        \end{itemize}
+        \centering
+        \includegraphics[width=\textwidth]{Figures/numWires}
+        \end{columns}
+
   \end{columns}
 
   \end{tcolorbox}
