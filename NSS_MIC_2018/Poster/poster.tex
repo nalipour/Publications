@@ -78,32 +78,32 @@
 \begin{document}
 \begin{frame}
 
-\begin{textblock}{4}(0.8, 5)
+\begin{textblock}{6}(0.8, 1)
 \includegraphics[width=\textwidth]{Figures/logo_cern.pdf}
 \end{textblock}
-\begin{textblock}{10}(71, 5)
+\begin{textblock}{10}(71, 1)
 \includegraphics[width=\textwidth]{Figures/FCC-logo}
 \end{textblock}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                             Block                                %%%
+%%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{43}(0.5, 14)
+\begin{textblock}{43}(0.5, 16)
   \begin{tcolorbox}[title=The Future Circular Collider Experiment (FCC)]
 
   \begin{columns}
     \column{0.6\textwidth}
       \begin{itemize}
-        \item A future possibility for the post-LHC era
-        \item 3 options of circular colliders
+        \item A future possibility for the post-LHC era \vspace{0.2cm}
+        \item 3 options of circular colliders \vspace{0.2cm}
           \begin{itemize}
             \item FCC-ee: electron - positron collisions
             \item FCC-hh: proton - proton collisions
             \item FCC-eh: electron - proton collisions
           \end{itemize}
-        \item $\sim$100~km tunnel in Geneva area
-        \item FCC-ee collider parameters:
+        \item $\sim$100~km tunnel in Geneva area \vspace{0.2cm}
+        \item FCC-ee collider parameters: \vspace{0.2cm}
       \end{itemize}
         \centering
       	\begin{tabular}{| l | c | c | c | c |}
@@ -126,17 +126,18 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                 %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{39.5}(44, 14)
+\begin{textblock}{39.5}(44, 16)
   \begin{tcolorbox}[title=FCCSW: Physics and Detector simulations with FCCSW]
 
+  \vspace{0.5cm}
   \begin{itemize}
-    \item Common software for all FCC experiments (ee, hh \& eh)
-    \item Detector and physics studies
+    \item Common software for all FCC experiments (ee, hh \& eh) \vspace{0.5cm}
+    \item Detector and physics studies \vspace{0.5cm}
       \begin{itemize}
         \item Fast \& full simulations
-        \item One software stack from event generation to physics analysis
+        \item One software stack from event generation to physics analysis \vspace{0.5cm}
       \end{itemize}
-    \item Collaborative approach with other CERN experiments
+    \item Collaborative approach with other CERN experiments \vspace{0.5cm}
       \begin{itemize}
         \item Gaudi from LHC
         \item DD4hep from CLIC \& LHCb
@@ -164,21 +165,21 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                                %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{83}(0.5, 34)
+\begin{textblock}{83}(0.5, 35.5)
   \begin{tcolorbox}[title=The IDEA detector concept for FCC-ee]
 
   \begin{columns}
     \column{0.3\textwidth}
       \begin{itemize}
-        \item The IDEA detector is one of the two detector concepts for the FCC-ee
-        \item Ultimate goal for the IDEA detector concept
+        \item The IDEA detector is one of the two detector concepts for the FCC-ee \vspace{0.5cm}
+        \item Ultimate goal for the IDEA detector concept \vspace{0.5cm}
           \begin{itemize}
-            \item Vertex detector: MAPS
-            \item Ultra-light drift chamber with particle identification
-            \item Double readout calorimetry
-            \item Aditional silicon disk layers placed in the space between the drift chamber and the dual readout calorimeter to increase the forward coverage
-            \item 2~T solenoidal magnetic field
-            \item Instrumented return yoke
+            \item Vertex detector: MAPS \vspace{0.2cm}
+            \item Ultra-light drift chamber with particle identification \vspace{0.2cm}
+            \item Double readout calorimetry \vspace{0.2cm}
+            \item Aditional silicon disk layers placed in the space between the drift chamber and the dual readout calorimeter to increase the forward coverage \vspace{0.2cm}
+            \item 2~T solenoidal magnetic field \vspace{0.2cm}
+            \item Instrumented return yoke \vspace{0.2cm}
             \item Large tracking volume (R $\sim$ 8~m) for very weakly coupled (long-lived) particles
           \end{itemize}
       \end{itemize}
@@ -197,7 +198,7 @@
     \centering
     \begin{tikzpicture}
       \node[anchor=south west,inner sep=0] (image) at
-      (0,0){\includegraphics[width=\textwidth]{Figures/FCCeeIDEA_IR}};
+      (0,0){\includegraphics[width=0.9\textwidth]{Figures/FCCeeIDEA_IR}};
       \begin{scope}[x={(image.south east)},y={(image.north west)}]
       \node[left] at (0.6, 0.7) {\textbf{Drift Chamber}};
 
@@ -227,7 +228,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{82}(0.5, 60)
+\begin{textblock}{82}(0.5, 58)
   \begin{tcolorbox}[title=The drift chamber]
 
   \begin{columns}
@@ -236,21 +237,22 @@
       \begin{itemize}
         \item The parameters of the drift chamber
       \end{itemize}
-
-      \begin{tabular}{l l}
-        \toprule
-          Gas & $90~\%$ Helium \&\\
-          & $10~\%$ isobutane ($\text{C}_{4}\text{H}_{10}$) \\
-          Length & 4500~mm \\
-          Inner radius & 345~mm \\
-          Outer radius & 2000~mm\\
-          Nb. layer & 112 \\
-          Cell size & 12~mm - 14.7~mm \\
-          Number of sensitive wires & 56448 \\
-          Single cell resolution & 0.1~mm \\
-          Longitudinal resolution & 1~mm \\
-        \bottomrule
-      \end{tabular}
+      \begin{adjustbox}{max width=\textwidth}
+        \begin{tabular}{l l}
+          \toprule
+            Gas & $90~\%$ Helium \&\\
+            & $10~\%$ isobutane ($\text{C}_{4}\text{H}_{10}$) \\
+            Length & 4500~mm \\
+            Inner radius & 345~mm \\
+            Outer radius & 2000~mm\\
+            Nb. layer & 112 \\
+            Cell size & 12~mm - 14.7~mm \\
+            Number of sensitive wires & 56448 \\
+            Single cell resolution & 0.1~mm \\
+            Longitudinal resolution & 1~mm \\
+          \bottomrule
+        \end{tabular}
+      \end{adjustbox}
 
     \column{0.25\textwidth}
       \centering
@@ -281,11 +283,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{40}(0.5, 90)
-  \begin{tcolorbox}[title=Main sources of beam-induced backgrounds]
+\begin{textblock}{80}(0.5, 90)
+  \begin{tcolorbox}[title=Main sources of beam-induced backgrounds at the FCC-ee and the impact on the IDEA drift chamber]
 
   \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
     \begin{itemize}
       \item Three main sources of beam-induced backgrounds
       \begin{itemize}
@@ -299,26 +301,14 @@
       \end{itemize}
     \end{itemize}
 
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
     \begin{itemize}
       \item The trajectory of the $e^+e^−$ pairs in a 2~T magnetic field.
     \end{itemize}
     \centering
     \includegraphics[width=\textwidth]{../figures/pairs_R_Z}
-  \end{columns}
 
-  \end{tcolorbox}
-\end{textblock}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Block %%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{50}(30, 90)
-  \begin{tcolorbox}[title=3 main sources of beam-induced backgrounds at the top stage]
-
-  \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.25\textwidth}
 
     \begin{itemize}
       \item Incoherent $e^+e^-$ pairs
@@ -326,17 +316,19 @@
     \centering
     \includegraphics[width=\textwidth]{Figures/incoherent_top_Z.pdf}
 
-    \column{0.5\textwidth}
-    \begin{tabular}{l c c}
-      \toprule
-       Background & \multicolumn{2}{c}{Average occupancy} \\
-        & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
-       \midrule
-       $e^+e^-$ pair background & 1.1\% & 2.9\% \\
-       $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
-       Synchrotron radiation & - & 0.2\% \\
-       \bottomrule
-    \end{tabular}
+    \column{0.25\textwidth}
+    \begin{adjustbox}{max width=\textwidth}
+      \begin{tabular}{l c c}
+        \toprule
+         Background & \multicolumn{2}{c}{Average occupancy} \\
+          & E\textsubscript{cm} = 91.2~GeV &  E\textsubscript{cm} = 365~GeV \\
+         \midrule
+         $e^+e^-$ pair background & 1.1\% & 2.9\% \\
+         $\gamma\gamma\rightarrow$ hadrons & 0.001\% & 0.035\%  \\
+         Synchrotron radiation & - & 0.2\% \\
+         \bottomrule
+      \end{tabular}
+    \end{adjustbox}
 
     \begin{itemize}
       \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
@@ -346,6 +338,8 @@
 
   \end{tcolorbox}
 \end{textblock}
+
+
 
 %--------------------------------------------%
 \end{frame}
