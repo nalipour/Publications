@@ -38,7 +38,7 @@
    \parbox[]{#1}{\dotfill}}
 
 \setbeamertemplate{bibliography entry title}{}
-\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry location}{(40, 90)}
 \setbeamertemplate{bibliography entry note}{}
 \footer{}
 
@@ -47,14 +47,15 @@
 
 
 \title{\Huge{Design of a drift chamber tracking system for the IDEA experiment at FCC-ee}}
-\author{\vspace*{1.5cm}{\Large{\underline{Niloufar Alipour Tehrani (CERN)}, Benedikt Hegner, Giovanni Francesco Tassielli, Francesco Grancagnolo, P. Janot, A. M. Kolano, G. Voutsinas}\\\vspace*{1cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference, Sydney, Australia}}}}
+\author{\vspace*{1.5cm}{\Large{\underline{N.~Alipour~Tehrani (CERN)}, B.~Hegner, F.~Grancagnolo, P.~Janot, A.~M.~Kolano,  G.~F.~Tassielli, G.~Voutsinas}\\\vspace*{1.5cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference}\\ \vspace*{0.8cm}\large{10 - 17 November 2018, International Convention Center Sydney, Australia}}}}
 % \footer{}
 \institute{CERN}
 \date{}
 %\footimage{}
 
-% \usepackage[backend=bibtex,style=numeric-comp,firstinits=true]{biblatex}
-% \bibliography{bib}
+\usepackage[backend=bibtex,style=numeric-comp,firstinits=true]{biblatex}
+\addbibresource{../ref.bib}
+% \bibliography{../ref.bib}
 % \setbeamertemplate{bibliography item}[text]
 % \renewcommand*{\bibfont}{\footnotesize}
 
@@ -78,18 +79,21 @@
 \begin{document}
 \begin{frame}
 
-\begin{textblock}{6}(0.8, 1)
+\begin{textblock}{6}(0.8, 12)
 \includegraphics[width=\textwidth]{Figures/logo_cern.pdf}
 \end{textblock}
-\begin{textblock}{10}(71, 1)
+\begin{textblock}{10}(7, 12)
 \includegraphics[width=\textwidth]{Figures/FCC-logo}
+\end{textblock}
+\begin{textblock}{10}(71, 11)
+\includegraphics[width=\textwidth]{Figures/IEEE_logo}
 \end{textblock}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{43}(0.5, 16)
+\begin{textblock}{43}(0.5, 18)
   \begin{tcolorbox}[title=The Future Circular Collider Experiment (FCC)]
 
   \begin{columns}
@@ -124,14 +128,14 @@
 \end{textblock}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%                             Block                 %%%
+% %%% Block %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{39.5}(44, 16)
+\begin{textblock}{39.5}(44, 18)
   \begin{tcolorbox}[title=FCCSW: Physics and Detector simulations with FCCSW]
 
   \vspace{0.5cm}
   \begin{itemize}
-    \item Common software for all FCC experiments (ee, hh \& eh) \vspace{0.5cm}
+    \item Common software for all FCC experiments (ee, hh \& eh)~\cite{FCCSW} \vspace{0.5cm}
     \item Detector and physics studies \vspace{0.5cm}
       \begin{itemize}
         \item Fast \& full simulations
@@ -143,12 +147,10 @@
         \item DD4hep from CLIC \& LHCb
         \item New solutions where needed
       \end{itemize}
-
+    \item The simulation pipeline
   \end{itemize}
 
-
-
-  \vspace{1cm}
+  \vspace{0.5cm}
 
   \centering
    % \scalebox{2}{
@@ -158,14 +160,14 @@
   	   	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
   	 	}
      % }
-     \vspace{0.5cm}
+     \vspace{0.2cm}
   \end{tcolorbox}
 \end{textblock}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                                %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{83}(0.5, 35.5)
+\begin{textblock}{83}(0.5, 37.5)
   \begin{tcolorbox}[title=The IDEA detector concept for FCC-ee]
 
   \begin{columns}
@@ -228,7 +230,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{43}(0.5, 58)
+\begin{textblock}{43}(0.5, 60)
   \begin{tcolorbox}[title=The drift chamber]
 
     \begin{itemize}
@@ -268,6 +270,7 @@
 
     \end{columns}
 
+  \vspace{0.5cm}
 
   \end{tcolorbox}
 \end{textblock}
@@ -276,7 +279,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{39.5}(44, 58)
+\begin{textblock}{39.5}(44, 60)
   \begin{tcolorbox}[title=The simulation of the drift chamber with FCCSW]
 
     \begin{columns}
@@ -371,7 +374,16 @@
   \end{tcolorbox}
 \end{textblock}
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%% Block %%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \begin{textblock}{43}(40, 90)
+   \begin{tcolorbox}[title=References]
 
+   \printbibliography
+
+  \end{tcolorbox}
+ \end{textblock}
 
 %--------------------------------------------%
 \end{frame}
