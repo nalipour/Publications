@@ -92,13 +92,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{43}(0.5, 18)
+\begin{textblock}{44.5}(0.5, 18)
   \begin{tcolorbox}[title=The Future Circular Collider Experiment (FCC)]
 
   \begin{columns}
     \column{0.6\textwidth}
       \begin{itemize}
-        \item A future possibility for the post-LHC era \vspace{0.2cm}
+        \item A future possibility for the post-LHC era at CERN \vspace{0.2cm}
         \item 3 options of circular colliders \vspace{0.2cm}
           \begin{itemize}
             \item FCC-ee: electron - positron collisions
@@ -113,7 +113,7 @@
         	\toprule
       	   Stages & Z & WW & H (ZH) & t\={t} \\
       	   \midrule
-           Beam energy [GeV] & 45.6 & 80 & 120 & 182.5 \\
+           Center of mass energy $\sqrt{s}$ [GeV] & 91.2 & 160 & 240 & 365 \\
            Average bunch spacing [ns] & 19.6 & 163 & 994 & 3396\\
       	   \bottomrule
       	\end{tabular}
@@ -129,12 +129,12 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%% Block %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{39.5}(44, 18)
-  \begin{tcolorbox}[title=FCCSW: Physics and Detector simulations with FCCSW]
+\begin{textblock}{38}(45.5, 18)
+  \begin{tcolorbox}[title=FCCSW: simulation software for FCC]
 
   \vspace{0.5cm}
   \begin{itemize}
-    \item Common software for all FCC experiments (ee, hh \& eh)~\cite{FCCSW} \vspace{0.5cm}
+    \item Common \textsc{Geant4}-based software for all FCC experiments (ee, hh \& eh)~\cite{FCCSW} \vspace{0.5cm}
     \item Detector and physics studies \vspace{0.5cm}
       \begin{itemize}
         \item Fast \& full simulations
@@ -142,8 +142,8 @@
       \end{itemize}
     \item Collaborative approach with other CERN experiments \vspace{0.5cm}
       \begin{itemize}
-        \item Gaudi from LHC~\cite{Gaudi}
-        \item DD4hep~\cite{DD4hep} from CLIC \& LHCb
+        \item Gaudi from LHC~\cite{Gaudi} $\Rightarrow$ software architecture
+        \item DD4hep~\cite{DD4hep} from CLIC \& LHCb $\Rightarrow$ detector description
         \item New solutions where needed
       \end{itemize}
     \item The simulation pipeline
@@ -156,24 +156,24 @@
   	 \smartdiagramset{back arrow disabled=true, module minimum width=6cm, text width=6cm, module minimum height=3cm, module x sep=8cm}
   	 	\smartdiagram[flow diagram:horizontal]
   	 	{%
-  	   	{Geometry\\DDhep}, Segmentation, {Geant4 \\simulation}, Digitization%
+  	   	{Geometry\\DDhep}, Segmentation, {\textsc{Geant4} \\simulation}, Digitization%
   	 	}
      % }
-     \vspace{0.2cm}
+     \vspace{0.5cm}
   \end{tcolorbox}
 \end{textblock}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%                             Block                                %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{83}(0.5, 37.5)
+\begin{textblock}{83}(0.5, 38)
   \begin{tcolorbox}[title=The IDEA detector concept for FCC-ee]
 
   \begin{columns}
     \column{0.3\textwidth}
       \begin{itemize}
         \item The IDEA detector is one of the two detector concepts for the FCC-ee \vspace{0.5cm}
-        \item Ultimate goal for the IDEA detector concept \vspace{0.5cm}
+        \item Ultimate goal for the IDEA concept \vspace{0.5cm}
           \begin{itemize}
             \item Vertex detector: MAPS \vspace{0.2cm}
             \item Ultra-light drift chamber with particle identification \vspace{0.2cm}
@@ -193,7 +193,7 @@
     \column{0.45\textwidth}
 
     \begin{itemize}
-      \item The IDEA detector as simulated with FCCSW
+      \item The IDEA detector as currently simulated with FCCSW
     \end{itemize}
 
     \centering
@@ -229,7 +229,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{43}(0.5, 60)
+\begin{textblock}{43}(0.5, 60.3)
   \begin{tcolorbox}[title=The drift chamber]
 
     \begin{itemize}
@@ -278,15 +278,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{textblock}{39.5}(44, 60)
+\begin{textblock}{39.5}(44, 60.3)
   \begin{tcolorbox}[title=The simulation of the drift chamber with FCCSW]
 
     \begin{columns}
     \column{0.5\textwidth}
       \begin{itemize}
-        \item The first layer of the drift chamber with wires rotated with a certain stereo angle.
-        \item The DD4hep segmentation (\textsc{DDSegmentation}) is responsible to associate a hit to the wire it drifts to.
-        \item Wires are illustrated using different colors.
+        \item The sensitive wires as simulated in the first layer of the drift chamber with FCCSW. \vspace{0.5cm}
+        \item The DD4hep segmentation (\textsc{DDSegmentation}) is responsible to associate a hit to the wire it drifts to \vspace{0.2cm}
+          \begin{itemize}
+            \item Reduces the running time by avoiding to place each wire individually
+          \end{itemize}
       \end{itemize}
 
       \column{0.5\textwidth}
@@ -364,8 +366,7 @@
    \begin{tcolorbox}[title=Conclusions]
 
    \begin{itemize}
-     \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
-     \item Summary of the occupancy of the drift chamber due to the beam-induced backgrounds
+     \item Summary of the occupancy of the drift chamber due to the beam-induced backgrounds \vspace{0.3cm}
    \end{itemize}
    \centering
    \begin{adjustbox}{max width=\textwidth}
@@ -381,7 +382,13 @@
      \end{tabular}
    \end{adjustbox}
 
+   \vspace{0.3cm}
 
+   \begin{itemize}
+    \item The overall impact remains low and the results are promising for the track reconstruction with this detector.
+   \end{itemize}
+
+   \vspace{0.3cm}
 
   \end{tcolorbox}
  \end{textblock}
@@ -389,7 +396,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%% Block %%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \begin{textblock}{39.5}(44, 108)
+ \begin{textblock}{39.5}(44, 108.5)
    \begin{tcolorbox}[title=References]
 
    \printbibliography
