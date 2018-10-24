@@ -46,7 +46,7 @@
 % \usebackgroundtemplate{%%\includegraphics[width=\paperwidth]{Figures/CLIC_canvas_accelerator_small.jpg}}
 
 
-\title{\Huge{Design of a drift chamber tracking system for the IDEA experiment at FCC-ee}}
+\title{\Huge{Simulation of the IDEA Drift Chamber at the FCC-ee}\vspace*{0.5cm}}
 \author{\vspace*{1.5cm}{\Large{\underline{N.~Alipour~Tehrani (CERN)}, B.~Hegner, F.~Grancagnolo, P.~Janot, A.~M.~Kolano,  G.~F.~Tassielli, G.~Voutsinas}\\\vspace*{1.5cm}{\Large{2018 IEEE Nuclear Science Symposium and Medical Imaging Conference}\\ \vspace*{0.8cm}\large{10 - 17 November 2018, International Convention Center Sydney, Australia}}}}
 % \footer{}
 \institute{CERN}
@@ -98,12 +98,12 @@
   \begin{columns}
     \column{0.6\textwidth}
       \begin{itemize}
-        \item A future possibility for the post-LHC era at CERN \vspace{0.2cm}
-        \item 3 options of circular colliders \vspace{0.2cm}
+        \item A possibility for the post-LHC era at CERN \vspace{0.5cm}
+
           \begin{itemize}
-            \item FCC-ee: electron - positron collisions
-            \item FCC-hh: proton - proton collisions
-            \item FCC-eh: electron - proton collisions
+            \item First step: FCC-ee (electron - positron)
+            \item Ultimate goal: FCC-hh (proton - proton)
+            \item Optional: FCC-eh (electron - proton) \vspace{0.5cm}
           \end{itemize}
         \item $\sim$100~km tunnel in Geneva area \vspace{0.2cm}
         \item FCC-ee collider parameters: \vspace{0.2cm}
@@ -117,6 +117,8 @@
            Average bunch spacing [ns] & 19.6 & 163 & 994 & 3396\\
       	   \bottomrule
       	\end{tabular}
+
+    \vspace{0.5cm}
 
     \column{0.4\textwidth}
       \centering
@@ -173,15 +175,15 @@
     \column{0.3\textwidth}
       \begin{itemize}
         \item The IDEA detector is one of the two detector concepts for the FCC-ee \vspace{0.5cm}
-        \item Ultimate goal for the IDEA concept \vspace{0.5cm}
+        \item Main features of the IDEA concept \vspace{0.5cm}
           \begin{itemize}
             \item Vertex detector: MAPS \vspace{0.2cm}
             \item Ultra-light drift chamber with particle identification \vspace{0.2cm}
-            \item Double readout calorimetry \vspace{0.2cm}
-            \item Aditional silicon disk layers placed in the space between the drift chamber and the dual readout calorimeter to increase the forward coverage \vspace{0.2cm}
-            \item 2~T solenoidal magnetic field \vspace{0.2cm}
+            \item Dual-readout calorimetry \vspace{0.2cm}
+            \item Aditional silicon disk layers placed in the space between the drift chamber and the dual readout calorimeter to serve as a precise tracking layer and a pre showering device \vspace{0.2cm}
+            \item 2~T axial magnetic field \vspace{0.2cm}
             \item Instrumented return yoke \vspace{0.2cm}
-            \item Large tracking volume (R $\sim$ 8~m) for very weakly coupled (long-lived) particles
+            %\item Large tracking volume (R $\sim$ 8~m) for very weakly coupled (long-lived) particles
           \end{itemize}
       \end{itemize}
 
@@ -230,13 +232,13 @@
 %%% Block %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{textblock}{43}(0.5, 60.3)
-  \begin{tcolorbox}[title=The drift chamber]
+  \begin{tcolorbox}[title=The IDEA drift chamber]
 
     \begin{itemize}
       \item The gas volume is divided into a set of hyperboloid layers.
-      \item Each layer contains one sensitive wire for signal acquisition.
-      \item Field wires surround the sensitive wires to provide homogeneous electric field for each cell.
-      \item The wires are rotated with a stereo angle of 0.1~radians to improve the longitudinal resolution along them.
+      \item Each layer contains single sense wire cells.
+      \item Field wires surround the sense wires to provide homogeneous electric field for each cell.
+      \item The wires are rotated with an average stereo angle of 0.1~radians to improve the longitudinal resolution along them.
     \end{itemize}
 
     \begin{columns}
@@ -251,13 +253,13 @@
           \toprule
             Gas & $90~\%$ Helium \&\\
             & $10~\%$ isobutane ($\text{C}_{4}\text{H}_{10}$) \\
-            Length & 4500~mm \\
+            Length & 4000~mm \\
             Inner radius & 345~mm \\
             Outer radius & 2000~mm\\
             Nb. layer & 112 \\
             Cell size & 12~mm - 14.7~mm \\
             Number of sensitive wires & 56448 \\
-            Single cell resolution & 0.1~mm \\
+            Transverse resolution & 0.1~mm \\
             Longitudinal resolution & 1~mm \\
           \bottomrule
         \end{tabular}
@@ -303,7 +305,7 @@
       \begin{itemize}
         \item The coverage of the drift chamber as a function of the polar angle $\theta$ is investigated using FCCSW.
         \item High coverage in the barrel region by $\sim 112$ wires in average.
-        \item In the forward region, silicon disks are foresean to increase the number of layers measuring the tracks.
+        \item In the forward region, silicon disks are foreseen to improve the track angle coverage.
       \end{itemize}
 
       \column{0.5\textwidth}
