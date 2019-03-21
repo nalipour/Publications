@@ -152,7 +152,7 @@
     \setlength{\parindent}{0pt}
     \begin{tabular}[t]{@{}p{0.45\textwidth}}
       {
-        \protect{\includegraphics[width=20mm]{images/cernlogo.eps}}
+        \protect{\includegraphics[width=20mm]{figures/cernlogo.eps}}
         }
     \end{tabular}
     \hfill
@@ -199,7 +199,7 @@
 
 \def\keywords#1{\gdef\@keywords{#1}}          % see \@maketitle
 
-\gdef\@keywords{{\tt Bending Magnet, path length, pole face angle, beam trajectory, survey, GEODE}}
+\gdef\@keywords{{\tt }}
 
 
 
