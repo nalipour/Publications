@@ -1,6 +1,16 @@
 \documentclass{cernatsnote}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{placeins}
+% \usepackage[pdftex]{graphicx}
+\usepackage{smartdiagram}
+\usesmartdiagramlibrary{additions}
+\usepackage[capitalise]{cleveref}
+\usepackage{booktabs}
+\usepackage{xspace,upgreek}
+\usepackage{units_definitions}
+\usepackage{tikz}
+\usepackage{subfig}
+\usepackage{amsmath}
 
 \title{Simulation studies for a drift chamber at the FCC-ee experiment}
 \author{
@@ -14,7 +24,8 @@
 \maketitle
 
 \begin{abstract}
-my abstract
+	The physics aims at the electron-positron option for  the Future Circular Collider (FCC-ee)~\cite{Gomez-Ceballos:2013zzn}, impose high precision requirements on the vertex and tracking detectors.  The detector has also to match the experimental conditions such as the collisions rate and the presence of beam-induced backgrounds.
+	A light weight tracking detector is under investigation for the IDEA (International Detector for Electron-Positron Accelerator) detector concept and consists of a drift chamber. Simulation studies of the drift chamber using the FCCSW (FCC software) are presented. Full simulations are used to study the effect of beam-induced backgrounds on this detector.
 \end{abstract}
 \\ \\ \\
 
@@ -26,15 +37,34 @@ my abstract
 \pagebreak
 
 \section{Introduction}
+The FCC-ee high-luminosity circular electron-positron collider, with center-of-mass energies $\sqrt{s}$ from $91.2\,\gev$ to
+$365\,\gev$, allows for high-precision measurements of the properties of the Z, the W, the top quark and the Higgs boson. As a predecessor of a new $100\,\tev$ proton-proton collider, the FCC-ee collider is foreseen to be placed in a 100~km tunnel in Geneva area as shown in~\cref{fig_fcc_cern}.
 
-% \begin{figure}[ht]
-% \centering
-% \includegraphics[width=0.8\textwidth]{images/StandardMagnetLayout.png}
-% \caption{\label{fig:StandardMagnetLayout} Standard magnet layout for a sector bending magnet}
-% \end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/cernFCC.jpg}%
+	\caption{A possible realization of the FCC experiment near the Geneva region.}
+	\label{fig_fcc_cern}
+\end{figure}
+
+The IDEA detector, one of the two detector concepts under development for FCC-ee, has demanding requirements to match the experimental conditions. Its main components consist of: an ultra-light silicon-based vertex detector, an ultra-light drift chamber for track reconstruction and particle identification, a dual-readout calorimeter, a 2~T axial magnetic field and an instrumented return yoke as illustrated in~\cref{fig_IDEA}. The drift chamber is being investigated using \textsc{Geant4}-based simulations. Its performance and the effect of beam-induced backgrounds are presented here-below.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/FCCeeIDEAConcept}%
+	\caption{Schematic layout of the IDEA detector with the sub-detectors illustrated in different colors: vertex detector (red), drift chamber (green), pre-shower (orange), magnet (gray), calorimeter (blue), magnet yoke and muon system (violet).}
+	\label{fig_IDEA}
+\end{figure}
 
 
-\subsection{Some concluding comments about survey}
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{images/StandardMagnetLayout.png}
+\caption{\label{fig:StandardMagnetLayout} Standard magnet layout for a sector bending magnet}
+\end{figure}
+
+\section{Tracking}
+\subsection{The Hough Transform}
 
 
 \bibliography{references}
