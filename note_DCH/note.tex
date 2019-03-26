@@ -72,6 +72,30 @@ One of the methods we are investigated is the Hough transform as described below
 \subsection{The Hough Transform}
 Initially invented for bubble chamber photographs~\cite{HTWikipedia}, the Hough Transform is a feature extraction technique used in several fields such as image analysis, computer vision and digital image procession. It allows for the identification of lines as well as other shapes such as circles or ellipses.
 
+\subsubsection{Principle}
+The simplest case of Hough transform is detecting straight lines. In the parameter space, lines are represented as a point (b, m) with \cref{lineeq}.
+
+\begin{equation}
+	y = m \cdot x + b
+	\label{lineeq}
+\end{equation}
+
+\begin{figure}[ht]
+	\begin{tikzpicture}[scale=1.5]
+    % Draw axes
+    \draw [<->,thick] (0,2) node (yaxis) [above] {$y$}
+        |- (3,0) node (xaxis) [right] {$x$};
+    % Draw two intersecting lines
+    \draw (0,0) coordinate (a_1) -- (2,1.8) coordinate (a_2);
+    \draw (0,1.5) coordinate (b_1) -- (2.5,0) coordinate (b_2);
+		
+    \coordinate (c) at (intersection of a_1--a_2 and b_1--b_2);
+    \fill[red] (c) circle (2pt);
+\end{tikzpicture}
+\caption{}
+\label{fig_lineParamSpace}
+\end{figure}
+
 
 \bibliography{references}
 \bibliographystyle{plain}
