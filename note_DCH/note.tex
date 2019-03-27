@@ -12,6 +12,7 @@
 \usepackage{subfig}
 \usepackage{amsmath}
 
+
 \title{Simulation studies for a drift chamber at the FCC-ee experiment}
 \author{
 	Niloufar Alipour Tehrani \; \\
@@ -57,11 +58,6 @@ The IDEA detector, one of the two detector concepts under development for FCC-ee
 \end{figure}
 
 
-% \begin{figure}[ht]
-% \centering
-% \includegraphics[width=0.8\textwidth]{images/StandardMagnetLayout.png}
-% \caption{\label{fig:StandardMagnetLayout} Standard magnet layout for a sector bending magnet}
-% \end{figure}
 
 \section{Tracking}
 
@@ -86,15 +82,40 @@ The simplest case of Hough transform is detecting straight lines. In the paramet
     \draw [<->,thick] (0,2) node (yaxis) [above] {$y$}
         |- (3,0) node (xaxis) [right] {$x$};
     % Draw two intersecting lines
-    \draw (0,0) coordinate (a_1) -- (2,1.8) coordinate (a_2);
-    \draw (0,1.5) coordinate (b_1) -- (2.5,0) coordinate (b_2);
-		
+    \draw (0,0) coordinate (a_1) -- (2, 2) coordinate (a_2);
+    \draw (0,1.5) coordinate (b_1) -- (1.8,0) coordinate (b_2);
+
     \coordinate (c) at (intersection of a_1--a_2 and b_1--b_2);
+		% right angle
     \fill[red] (c) circle (2pt);
+
 \end{tikzpicture}
-\caption{}
+\caption{TODO: A line is representate as a point (b, m) in the parameter space according to \cref{lineeq}.}
 \label{fig_lineParamSpace}
 \end{figure}
+
+With the presentation (b, m) in the parameter space, vertical lines pose problems for the unbounded slope parameter \textit{m}. The Hesse normal form as described in \cref{line_hesse} can be used as a solution to get around vertical lines, where $r$ is the shortest distance from the origin to the line and $\theta$ is the angle between the $x$ axis and the line connecting the origin with the closest point as illustrated in \cref{fig_lineParamSpace}. The (r, $\theta$) plane is referred to as the Hough Space.
+
+
+\begin{equation}
+	r = x \cdot \cos(\theta) + y \cdot \sin(\theta)
+	\label{line_hesse}
+\end{equation}
+
+% \begin{figure}[ht]
+% 	\centering
+% 	\begin{subfigure}[b]{0.5\textwidth}
+%         \includegraphics[width=0.8\textwidth]{figures/line.pdf}
+%         \caption{A gull}
+%         \label{pointsLine}
+%     \end{subfigure}~
+% 		\begin{subfigure}[b]{0.5\textwidth}
+% 					\includegraphics[width=0.8\textwidth]{figures/line.pdf}
+% 					\caption{A gull}
+% 					\label{pointsLine}
+% 			\end{subfigure}
+% \caption{\label{fig:StandardMagnetLayout} Standard magnet layout for a sector bending magnet}
+% \end{figure}
 
 
 \bibliography{references}
