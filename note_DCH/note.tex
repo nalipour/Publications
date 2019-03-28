@@ -270,7 +270,23 @@ With the presentation (b, m) in the parameter space, vertical lines pose problem
 	\caption{A line as represented in the parameter and the Hough space.}
 \end{figure}
 
-\subsubsection{Hough transform for circles}
+\subsubsection{Identification of circles}
+
+The track of a charged particle in a magnetic field follows a helicoidal trajectory. In the xy-plane, the hits follow a circular trajectory as described with \cref{circleEq} where $(a, b)$ represent the center of the circle and $R$ the radius of the circle.
+
+\begin{equation}
+  {(x-a)}^2 + {(y-b)}^2 = R^2
+	\label{circleEq}
+\end{equation}
+
+The Hough transformation gets better results when applied to lines. For this reason, first the conformal mapping~\cite{Hansroul:1988wa} is first applied to map circular hits into lines using \cref{conformalTrans}. This mapping works only if the condition
+
+\begin{equation}
+  u = {{x} \over {x^2+y^2}} , \,\,\,\, v = {{y} \over {x^2+y^2}}
+	\label{conformalTrans}
+\end{equation}
+
+
 \subsubsection{Hough transform for helix}
 
 \subsection{Results for particle gun}
