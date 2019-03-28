@@ -10,7 +10,7 @@
 \usepackage{units_definitions}
 \usepackage{tikz}
 
-\usepackage{amsmath}
+\usepackage{amsmath, tabularx}
 \usepackage{graphicx}
 \usepackage{subcaption}
 
@@ -279,12 +279,68 @@ The track of a charged particle in a magnetic field follows a helicoidal traject
 	\label{circleEq}
 \end{equation}
 
-The Hough transformation gets better results when applied to lines. For this reason, first the conformal mapping~\cite{Hansroul:1988wa} is first applied to map circular hits into lines using \cref{conformalTrans}. This mapping works only if the condition
+The Hough transformation gets better results when applied to lines. For this reason, first the conformal mapping~\cite{Hansroul:1988wa} is first applied to map circular hits into lines using \cref{conformalTrans}.
 
 \begin{equation}
   u = {{x} \over {x^2+y^2}} , \,\,\,\, v = {{y} \over {x^2+y^2}}
 	\label{conformalTrans}
 \end{equation}
+
+The conformal mapping maps a circle to a line if and only if the circle passes from the origin or following the condition as described in \cref{conformalTrans_condition} and the straight lines are described by \cref{equation_straightLine}.
+
+\begin{equation}
+  a^2 + b^2 = R^2
+	\label{conformalTrans_condition}
+\end{equation}
+
+\begin{equation}
+  v = {1 \over {2b}} - u {a \over b}
+	\label{equation_straightLine}
+\end{equation}
+
+If the condition in \cref{conformalTrans_condition} is not satisfied, some correction terms are needed for the transformation in \cref{conformalTrans} to transform circles into lines.
+
+The Hough transformation is then applied to the straight lines using \cref{Eq_HT_circle}.
+
+\begin{equation}
+	\rho = u \cdot cos(\phi) + v \cdot sin(\phi)
+	\label{Eq_HT_circle}
+\end{equation}
+
+The radius of the circle $R$ is connected the $\rho$ parameter of the Hough transformation by \cref{Eq_R_rho}.
+
+\begin{equation}
+	R = {1 \over {2 \cdot \rho}}
+	\label{Eq_R_rho}
+\end{equation}
+
+Finally, the center of the circle is extracted from the Hough transformation using \cref{Eq_HT_centers}.
+
+
+\begin{equation}
+	a = {cos(\phi) \over {2 \cdot \rho}},
+\,\,\,\,
+	b = {sin(\phi) \over {2 \cdot \rho}}
+\label{Eq_HT_centers}
+\end{equation}
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=0.8\textwidth]{figures/line.pdf}
+        \caption{Parameter space}
+        % \label{pointsLine}
+    \end{subfigure}
+		~ %
+		\begin{subfigure}[b]{0.45\textwidth}
+					\includegraphics[width=0.8\textwidth]{figures/line_hough.pdf}
+					\caption{Hough space}
+					% \label{pointsLine2}
+			\end{subfigure}
+	\label{HTLine}
+	\caption{A line as represented in the parameter and the Hough space.}
+\end{figure}
 
 
 \subsubsection{Hough transform for helix}
