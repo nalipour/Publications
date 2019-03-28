@@ -256,13 +256,13 @@ With the presentation (b, m) in the parameter space, vertical lines pose problem
 \begin{figure}[ht]
 	\centering
 	\begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=0.8\textwidth]{figures/line.pdf}
+        \includegraphics[width=\textwidth]{figures/line.pdf}
         \caption{Parameter space}
         % \label{pointsLine}
     \end{subfigure}
 		~ %
 		\begin{subfigure}[b]{0.45\textwidth}
-					\includegraphics[width=0.8\textwidth]{figures/line_hough.pdf}
+					\includegraphics[width=\textwidth]{figures/line_hough.pdf}
 					\caption{Hough space}
 					% \label{pointsLine2}
 			\end{subfigure}
@@ -327,26 +327,54 @@ Finally, the center of the circle is extracted from the Hough transformation usi
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=0.8\textwidth]{figures/line.pdf}
-        \caption{Parameter space}
-        % \label{pointsLine}
+	\begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/circle.pdf}
+        \caption{}
+
     \end{subfigure}
 		~ %
-		\begin{subfigure}[b]{0.45\textwidth}
-					\includegraphics[width=0.8\textwidth]{figures/line_hough.pdf}
-					\caption{Hough space}
-					% \label{pointsLine2}
+		\begin{subfigure}[b]{0.3\textwidth}
+					\includegraphics[width=\textwidth]{figures/circle_CT.pdf}
+					\caption{}
 			\end{subfigure}
-	\label{HTLine}
-	\caption{A line as represented in the parameter and the Hough space.}
+			~ %
+			\begin{subfigure}[b]{0.3\textwidth}
+						\includegraphics[width=\textwidth]{figures/circle_HT.pdf}
+						\caption{}
+				\end{subfigure}
+	\label{HTcircle}
+	\caption{Circles (a) as represented after a conformal mapping (b) and after the Hough transformation (c).}
 \end{figure}
+
 
 
 \subsubsection{Hough transform for helix}
 
 \subsection{Results for particle gun}
-\subsection{Z $\rightarrow$ qq}
+\subsection{Hough transformation and the simulation of jets}
+
+For a center-of-mass energy of $\sqrt{s} = 91 \,\gev$, the simulation of the jets by the decay Z $\rightarrow$ d\={d}
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{figures/Zdd_3D.pdf}
+        \caption{}
+
+    \end{subfigure}
+		~ %
+		\begin{subfigure}[b]{0.3\textwidth}
+					\includegraphics[width=\textwidth]{figures/CT_Zdd.pdf}
+					\caption{}
+			\end{subfigure}
+			~ %
+			\begin{subfigure}[b]{0.3\textwidth}
+						\includegraphics[width=\textwidth]{figures/HT_Zdd.pdf}
+						\caption{}
+				\end{subfigure}
+	\label{HTZdd}
+	\caption{Z $\rightarrow$ d\={d}}
+\end{figure}
 
 \bibliography{references}
 \bibliographystyle{plain}
