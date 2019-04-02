@@ -16,4 +16,36 @@ Make sure to correctly set remote for the GitHub repository using the following 
 Setup the environment in order to build or use the software.
 \begin{lstlisting}[language=bash,caption={Setup the environment and compile.}]
   source ./init.sh
+  make -j 12
+\end{lstlisting}
+
+\subsection{Running FCCSW}
+
+In order to visualise the geometry of the FCCeeIDEA detector run the following command and the display is shown in \cref{fig_sim_vis}.
+
+\begin{lstlisting}[language=bash,caption={Visualise the full geometry of the FCCeeIDEA detector.}]
+./run geoDisplay -compact
+  Detector/DetFCCeeIDEA/compact/FCCee_DectEmptyMaster.xml
+  Detector/DetFCCeeIDEA/compact/FCCee_DectMaster.xml
+\end{lstlisting}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/FCCeeIDEA_IR}
+
+\caption{Visualisation of the FCCeeIDEA detector using FCCSW.}
+\label{fig_sim_vis}
+\end{figure}
+
+The following script is used to run a simulation using particle gun from \testsc{Geant4}. The output is written in a PODIO file. The output contains the energy deposits calculated by \testsc{Geant4} at each \textsc{G4Step}.
+
+\begin{lstlisting}[language=bash,caption={Particle gun simulation.}]
+./run fccrun.py Examples/options/geant_fullsim_fccee_pgun.py
+\end{lstlisting}
+
+\subsection{Hit Reconstruction}
+
+The hits (or energy deposits calculated at each \textsc{G4Step}) are then drifted to the corresponding wire.
+\begin{lstlisting}[language=bash,caption={Reconstruction of the simulated hits for the drift chamber.}]
+./run fccrun.py Reconstruction/RecDriftChamber/tests/options/mergeHits.py
 \end{lstlisting}
