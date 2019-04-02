@@ -1,1 +1,19 @@
 \section{Technical documentation}
+
+In this chapter, the a tutorial for setting up the simulation and the analysis of the IDEA detector is described. More information on the FCC software is available on the \href{http://fccsw.web.cern.ch/fccsw/}{FCCSW webpage}~\cite{FCCSW}.
+
+\subsection{Installation of FCCSW from GitHub}
+
+First, fork the FCCSW repository on \href{https://github.com/HEP-FCC/FCCSW}{GitHub}. Log in to \textsc{lxplus SLC6} and clone your fork of the project.
+
+\begin{lstlisting}[language=bash,caption={Clone your fork of the FCCSW repository.}]
+  git clone https://github.com/[your-github-username]/FCCSW.git
+  cd FCCSW
+\end{lstlisting}
+
+Make sure to correctly set remote for the GitHub repository using the following \href{https://help.github.com/en/articles/configuring-a-remote-for-a-fork}{guide}\footnote{\href{https://help.github.com/en/articles/configuring-a-remote-for-a-fork}{https://help.github.com/en/articles/configuring-a-remote-for-a-fork}}. To sync your fork with the upstream repository use the instructions given in this \href{https://help.github.com/en/articles/syncing-a-fork}{guide}\footnote{\href{https://help.github.com/en/articles/syncing-a-fork}{https://help.github.com/en/articles/syncing-a-fork}}.
+
+Setup the environment in order to build or use the software.
+\begin{lstlisting}[language=bash,caption={Setup the environment and compile.}]
+  source ./init.sh
+\end{lstlisting}
