@@ -24,8 +24,8 @@ Setup the environment in order to build or use the software.
 In order to visualise the geometry of the FCCeeIDEA detector run the following command and the display is shown in \cref{fig_sim_vis}.
 
 \begin{lstlisting}[language=bash,caption={Visualise the full geometry of the FCCeeIDEA detector.}]
-./run geoDisplay -compact
-  Detector/DetFCCeeIDEA/compact/FCCee_DectEmptyMaster.xml
+./run geoDisplay -compact \
+  Detector/DetFCCeeIDEA/compact/FCCee_DectEmptyMaster.xml \
   Detector/DetFCCeeIDEA/compact/FCCee_DectMaster.xml
 \end{lstlisting}
 
@@ -45,7 +45,8 @@ The following script is used to run a simulation using particle gun from \testsc
 
 \subsection{Hit Reconstruction}
 
-The hits (or energy deposits calculated at each \textsc{G4Step}) are then drifted to the corresponding wire.
+The hits (or energy deposits calculated at each \textsc{G4Step}) are then drifted to the corresponding wire. This step, outputs a ROOT file containing the wires hit (cellID, layerID and wireID), the Monte Carlo Truth positions, the distance of the closest approach of the track to the wire hit.
 \begin{lstlisting}[language=bash,caption={Reconstruction of the simulated hits for the drift chamber.}]
-./run fccrun.py Reconstruction/RecDriftChamber/tests/options/mergeHits.py
+./run fccrun.py \ 
+Reconstruction/RecDriftChamber/tests/options/mergeHits.py
 \end{lstlisting}
