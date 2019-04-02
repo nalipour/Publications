@@ -51,3 +51,9 @@ The hits (or energy deposits calculated at each \textsc{G4Step}) are then drifte
   ./run fccrun.py \
   Reconstruction/RecDriftChamber/tests/options/mergeHits.py
 \end{lstlisting}
+
+\subsection{Simulation of the pair backgrounds}
+\begin{lstlisting}[language=bash,caption={Simulation of the incoherent pair background.}]
+  ./run fccrun.py Examples/options/geant_fullsim_fccee_hepevt.py \
+  --input="+inputFile+" --outputfile="+outputFile
+\end{lstlisting}
