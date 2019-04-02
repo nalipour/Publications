@@ -37,7 +37,7 @@ In order to visualise the geometry of the FCCeeIDEA detector run the following c
 \label{fig_sim_vis}
 \end{figure}
 
-The following script is used to run a simulation using particle gun from \testsc{Geant4}. The output is written in a PODIO file. The output contains the energy deposits calculated by \testsc{Geant4} at each \textsc{G4Step}.
+The following script is used to run a simulation using particle gun from \textsc{Geant4}. The output is written in a PODIO file. The output contains the energy deposits calculated by \textsc{Geant4} at each \textsc{G4Step}.
 
 \begin{lstlisting}[language=bash,caption={Particle gun simulation.}]
 ./run fccrun.py Examples/options/geant_fullsim_fccee_pgun.py
@@ -46,7 +46,8 @@ The following script is used to run a simulation using particle gun from \testsc
 \subsection{Hit Reconstruction}
 
 The hits (or energy deposits calculated at each \textsc{G4Step}) are then drifted to the corresponding wire. This step, outputs a ROOT file containing the wires hit (cellID, layerID and wireID), the Monte Carlo Truth positions, the distance of the closest approach of the track to the wire hit.
+
 \begin{lstlisting}[language=bash,caption={Reconstruction of the simulated hits for the drift chamber.}]
-./run fccrun.py \ 
-Reconstruction/RecDriftChamber/tests/options/mergeHits.py
+  ./run fccrun.py \
+  Reconstruction/RecDriftChamber/tests/options/mergeHits.py
 \end{lstlisting}
