@@ -70,7 +70,7 @@ The FCC Software (FCCSW)~\cite{FCCSW} is a common software for all FCC experimen
 \subsection{Geometry description with DD4hep}
 First, the geometry of the detector is described using the DD4hep simulation framework. The current implementation of the detectors in the interaction region for the IDEA detector is shown in \cref{fig_sim}. The interaction region consists of a beam pipe, a shielding solenoid, a luminosity calorimeter, a vertex detector and a drift chamber. The geometry of the drift chamber is defined as layers of gas. In order to increase the simulation speed, the individual wires are not physically placed in the simulation software and the segmentation takes them into account.
 
-\begin{figure}[!t]
+\begin{figure}[ht]
 \centering
 	\begin{tikzpicture}
 		\node[anchor=south west,inner sep=0] (image) at
@@ -104,18 +104,18 @@ First, the geometry of the detector is described using the DD4hep simulation fra
 
 The segmentation of the sensitive gas detector contains the information on the positions of the wires in the detector. The segmentation for the first layer of the drift chamber is shown in \cref{fig_segmentation_first_case}. This reduces the running time by avoiding to place each wire volume individually.
 
-\begin{figure}[!t]
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=2.5in]{figures/allHits}
+	\includegraphics[width=0.6\textwidth]{figures/allHits}
 	\caption{The segmentation of the first layer of the drift chamber.}
 	\label{fig_segmentation_first_case}
 \end{figure}
 
 The total number of wires as a function of the polar angle $\theta$ is illustrated in \cref{fig_segmentation_second_case}. In the barrel region, a high coverage is obtained by $\sim~112$ wires in average. In the forward region, silicon disks are foreseen to improve the track angle coverage.
 
-\begin{figure}[!t]
+\begin{figure}[ht]
 	\centering
-	\includegraphics[width=2.5in]{figures/numWires}%
+	\includegraphics[width=0.6\textwidth]{figures/numWires}%
 	\caption{Total number of wires as a function of the polar angle $\theta$ (calculated using infinite momentum tracks from the origin).}
 	\label{fig_segmentation_second_case}
 \end{figure}
@@ -130,9 +130,9 @@ Three main sources of beam-induced backgrounds at the FCC-ee experiment are: inc
 The incoherent $e^+e^-$ pairs are generated from the strong electromagnetic force from the electron and positron bunches in the field of the opposite beam. This leads to the production of Beamstrahlung photons. The interactions of Beamstrahlung photons generate incoherent lepton pairs at low polar angles and mostly contained in the forward direction as shown in~\cref{fig_pairbcg}. The \textsc{GUINEA-PIG}~\cite{Schulte:382453} event generator has been used to generate the incoherent $e^+e^-$ background particles at a $\sqrt{s}$ of $91.2\,\gev$ and $365\,\gev$~\cite{Voutsinas:2017eca} and their impact on the drift chamber is simulated using the FCCSW. The occupancy of the drift chamber due to incoherent $e^+e^-$ pairs as a function of the detector radius is shown in~\cref{fig_simhitspercent}. In fact, the produced incoherent pairs have a low polar angle and only few of them reach the drift chamber. Most of the hits observed are due to the scattering of the $e^+e^-$ pairs by interacting with the elements in the interaction region.
 
 
-\begin{figure}[!h]
+\begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{figures/pairs_R_Z.png}
+\includegraphics[width=0.6\textwidth]{figures/pairs_R_Z.png}
 \caption{The trajectory of the $e^+e^-$ pairs in a 2~T magnetic field.}
 \label{fig_pairbcg}
 \end{figure}
@@ -142,14 +142,14 @@ The incoherent $e^+e^-$ pairs are generated from the strong electromagnetic forc
 The $\gamma\gamma\rightarrow$~hadrons background is expected to have a very low impact on the drift chamber. The synchrotron radiation, dictates the design of the interaction region. It defines the beampipe radius and the design of the shielding (in Tungsten).
 \cref{occupancy_DCH} summarizes the occupancy in the drift chamber due to different sources of beam-induced backgrounds. The overall occupancy due to all backgrounds is as expected, with $e^+e^-$ pair background having the highest impact. Based on previous experience with the MEG2 experiment, it can be deduced that the background does not pose problem for the reconstruction of the tracks using the drift chamber.
 
-\begin{figure}[!h]
+\begin{figure}[ht]
 \centering
-\includegraphics[width=2.5in]{figures/incoherent_top_Z.pdf}
+\includegraphics[width=0.6\textwidth]{figures/incoherent_top_Z.pdf}
 \caption{The percentage of wires hit due to $e^+e^-$ pair background as a function of the layer radius averaged over 100 bunch crossings. For the Z stage ($\sqrt{s} = 91.2\,\gev$), the readout latency is also taken into account by summing up the background over 4 bunch crossings.}
 \label{fig_simhitspercent}
 \end{figure}
 
-\begin{table}[!h]
+\begin{table}[ht]
 	\renewcommand{\arraystretch}{1.3}
 	\caption{Average occupancy in the drift chamber due to beam-induced backgrounds.}
 	\label{occupancy_DCH}
