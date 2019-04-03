@@ -53,7 +53,9 @@ The hits (or energy deposits calculated at each \textsc{G4Step}) are then drifte
 \end{lstlisting}
 
 \subsection{Simulation of the pair backgrounds}
+For the simulation of incoherent $e^+e^-$ pairs, the following command needs to be run. The input file is obtained from the \textsc{GUINEA-PIG}~\cite{Schulte:382453} simulation framework and it is written in the \textsc{HEPEVT} format. The output file is in \textsc{PODIO} format.
+
 \begin{lstlisting}[language=bash,caption={Simulation of the incoherent pair background.}]
   ./run fccrun.py Examples/options/geant_fullsim_fccee_hepevt.py \
-  --input="+inputFile+" --outputfile="+outputFile
+  --input=inFileName --outputfile=outFileName
 \end{lstlisting}
