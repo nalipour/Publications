@@ -138,9 +138,37 @@ Finally, the center of the circle is extracted from the Hough transformation usi
 The Hough transformation is a periodic function and the points in the $\rho-\theta$ plane are bounded by $\theta \in \left[0, 2\pi\right]$ and $\rho \in \left[-\sqrt{u^2+v^2}, \sqrt{u^2+v^2}\right]$. It is important to note that the points $(\theta, \rho)$ and $(\theta+\pi, -\rho)$ describe the same line. In the studies presented in this document, to remove the ambiguity, $\rho$ is limited to positive values.
 
 
-\subsubsection{Hough transform for helix}
 
-\subsection{Hough transformation for particle tracks}
+\subsection{Identification of single tracks}
+The detection of single particle tracks simulated with FCCSW has been investigated.
+
+Simulations using a $2.4\,\gev$ muon particle gun have been done. In a 2~T magnetic field, the bending radius is 4~m. An event is displace in \cref{fig_pgun_3d}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/3D_pgun.pdf}%
+	\caption{Simulated hits in the drift chamber for a $2.4\,\gev$ muon in a 2~T magnetic field.}
+	\label{fig_pgun_3d}
+\end{figure}
+
+\cref{fig_pgun_CT} shows the conformal transformation to the (x-y) position of the simulated hits in the drift chamber and the hits are mapped to a line.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/CT_pgun.pdf}%
+	\caption{Conformal transformation for the hits as shown in \cref{fig_pgun_3d}.}
+	\label{fig_pgun_CT}
+\end{figure}
+
+Finally the Hough transformation is applied to the conformal transform (\cref{fig_pgun_CT}) and the result is shown in \cref{fig_pgun_HT}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/HT_pgun.pdf}%
+	\caption{Hough transformation applied to the conformal transform as shown in \cref{fig_pgun_CT}.}
+	\label{fig_pgun_HT}
+\end{figure}
+
 \subsection{Hough transformation for the incoherent pair background}
 \subsection{Hough transformation and the simulation of jets}
 
