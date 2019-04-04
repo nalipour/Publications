@@ -160,7 +160,7 @@ Simulations using a $2.4\,\gev$ muon particle gun have been done. In a 2~T magne
 	\label{fig_pgun_CT}
 \end{figure}
 
-Finally the Hough transformation is applied to the conformal transform (\cref{fig_pgun_CT}) and the result is shown in \cref{fig_pgun_HT}.
+Finally the Hough transformation is applied to the conformal transform (\cref{fig_pgun_CT}) and the result is shown in \cref{fig_pgun_HT}. In the Hough space, all the hits corresponding to the same track are represented by a local maximum. Therefore, tracks are found by searching for local maxima in the Hough space. Also, the location of the maxima gives the information on the bending radius of the track and its $\phi$-direction.
 
 \begin{figure}[ht]
 	\centering
@@ -169,7 +169,52 @@ Finally the Hough transformation is applied to the conformal transform (\cref{fi
 	\label{fig_pgun_HT}
 \end{figure}
 
-\subsection{Hough transformation for the incoherent pair background}
+\subsection{Finding local maxima in the Hough space}
+As seen in the previous chapter, the pattern recognition is performed by looking for local maxima in the Hough space. Since the drift chamber has 112 layers, a threshold is applied to select bins in the Hough space which have more than 112 entries. And to increase the accuracy, the neighboring bins around the bins with maximum hits are also investigated and they are clustered together. \cref{fig_pgun_HT_maxima} shows the bins with at least 112 hits and also one cluster is found. The bending radius of the $2.4\,\gev$ is correctly given by the Hough transformation.
+
+The DBSCAN clustering algorithm\footnote{https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html} provided by the python library scikit-learn is used with a distance metric. With a distance of $\sqrt{2} \times$~bin size, the clusters' shapes are illustrated in \cref{fig_clushape}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/HT_pgun_maxima.pdf}%
+	\caption{Finding the maxima in the Hough space of \cref{fig_pgun_HT}. The bins with more than 112 hits are highlighted and a clustering algorithm is also run.}
+	\label{fig_pgun_HT_maxima}
+\end{figure}
+
+
+
+\begin{figure}[ht]
+	\begin{framed}
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+			\draw (0,0) rectangle (0.5, 0.5);
+			\draw (0, 0.5) rectangle (00.5, 1);
+		\end{tikzpicture}
+  \end{subfigure}
+		~ %
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+		\draw (0,0) rectangle (0.5, 0.5);
+		\draw (0.5, 0) rectangle (1, 0.5);
+		\end{tikzpicture}
+		\end{subfigure}
+			~ %
+	\centering
+	\begin{subfigure}[b]{0.3\textwidth}
+		\begin{tikzpicture}
+      \draw (0,0) rectangle (0.5, 0.5);
+      \draw (0.5, 0.5) rectangle (1, 1);
+      \end{tikzpicture}
+		\end{subfigure}
+		\end{framed}
+	\label{fig_clushape}
+	\caption{Configurations where the shapes are considered as a cluster with a distance criterion of $\sqrt{2}$.}
+\end{figure}
+
+
+\subsection{The incoherent $e^+e^-$ background pairs in the Hough space}
 \subsection{Hough transformation and the simulation of jets}
 
 For a center-of-mass energy of $\sqrt{s} = 91 \,\gev$, the simulation of the jets by the decay Z~$\rightarrow$~d\={d}.
