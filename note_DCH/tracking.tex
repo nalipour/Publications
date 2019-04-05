@@ -214,7 +214,45 @@ The DBSCAN clustering algorithm\footnote{https://scikit-learn.org/stable/modules
 \end{figure}
 
 
-\subsection{The incoherent $e^+e^-$ background pairs in the Hough space}
+\subsection{Incoherent $e^+e^-$ background pairs}
+
+\cref{fig_bcg} shows the simulated hits in the drift chamber due to incoherent $e^+e^-$ background pairs.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/3D_background.pdf}%
+	\caption{Display of the incoherent $e^+e^-$ background hits in the drift chamber.}
+	\label{fig_bcg}
+\end{figure}
+
+The conformal transformation corresponding to the hits as shown in \cref{fig_bcg} is shown in \cref{fig_bcg_CT}. The conformal transform displays the tracks as lines.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{figures/CT_background.pdf}%
+	\caption{Display of the incoherent $e^+e^-$ background hits in the drift chamber.}
+	\label{fig_bcg_CT}
+\end{figure}
+
+\cref{fig_bcg_HT} shows the Hough transformation of the background hits. The clustering algorithm finds 30 clusters. The confusion is due to the noisy environment. Also, the bin size and the threshold have a high impact on the number of clusters found. To reconstruct tracks in such a noisy environment, two solutions can be explored. First, the timing of the incoherent pairs can be explored to reduce hits with high timings. The second method would be to use the information from the seeding in the vertex detector and restrict the search for tracks in the Hough space based on the seeds.
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/HT_background.pdf}
+        \caption{}
+
+    \end{subfigure}
+		~ %
+		\begin{subfigure}[b]{0.48\textwidth}
+					\includegraphics[width=\textwidth]{figures/HT_background_maxima.pdf}
+					\caption{}
+			\end{subfigure}
+	\label{fig_bcg_HT}
+	\caption{(a) shows the $e^+e^-$ background hits as represented in the Hough space. (b) shows the clusters found by the clustering algorithm.}
+\end{figure}
+
+
 \subsection{Hough transformation and the simulation of jets}
 
 For a center-of-mass energy of $\sqrt{s} = 91 \,\gev$, the simulation of the jets by the decay Z~$\rightarrow$~d\={d}.
