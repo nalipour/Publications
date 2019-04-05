@@ -253,27 +253,31 @@ The conformal transformation corresponding to the hits as shown in \cref{fig_bcg
 \end{figure}
 
 
-\subsection{Hough transformation and the simulation of jets}
+\subsection{Dijet events}
 
-For a center-of-mass energy of $\sqrt{s} = 91 \,\gev$, the simulation of the jets by the decay Z~$\rightarrow$~d\={d}.
+The Hough transformation is also investigated for more complex events such as the decay of the Z-like boson into two light-quark dijets (Z~$\rightarrow$~d\={d}) for a center-of-mass energy of $\sqrt{s} = 91 \,\gev$.
+The hits in the drift chamber are displayed in \cref{fig_Zdd}.
 
 \begin{figure}[ht]
 	\centering
-	\begin{subfigure}[b]{0.3\textwidth}
-        \includegraphics[width=\textwidth]{figures/Zdd_3D.pdf}
+	\begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{figures/3D_Zdd.pdf}
         \caption{}
-
     \end{subfigure}
 		~ %
-		\begin{subfigure}[b]{0.3\textwidth}
+		\begin{subfigure}[b]{0.48\textwidth}
 					\includegraphics[width=\textwidth]{figures/CT_Zdd.pdf}
 					\caption{}
 			\end{subfigure}
-			~ %
-			\begin{subfigure}[b]{0.3\textwidth}
-						\includegraphics[width=\textwidth]{figures/HT_Zdd.pdf}
-						\caption{}
-				\end{subfigure}
+	\caption{(a) display of the hits in the drift chamber due to the decay Z~$\rightarrow$~d\={d} at a center-of-mass energy of $\sqrt{s} = 91 \,\gev$. (b) displays the conformal transformation of such complex events.}
+	\label{fig_Zdd}
+\end{figure}
+
+The Hough transformation for such a complex event is shown in \cref{HTZdd}. As seen previously, the clustering can be very sensitive to the threshold and bin sizes in the Hough space. The information from the seeding of the vertex detector can improve the pattern recognition in the drift chamber.
+
+\begin{figure}[ht]
+	\centering
+  \includegraphics[width=0.8\textwidth]{figures/HT_Zdd.pdf}
 	\label{HTZdd}
-	\caption{Z $\rightarrow$ d\={d}}
+	\caption{The Hough transformation corresponding to the Z $\rightarrow$ d\={d} decay.}
 \end{figure}
