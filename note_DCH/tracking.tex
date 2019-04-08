@@ -16,6 +16,8 @@ The simplest case of Hough transform is detecting straight lines. In the paramet
 \end{equation}
 
 \begin{figure}[ht]
+
+	\centering
 	\begin{tikzpicture}[scale=1.5]
     % Draw axes
     \draw [<->,thick] (0,2) node (yaxis) [above] {$y$}
@@ -25,11 +27,16 @@ The simplest case of Hough transform is detecting straight lines. In the paramet
     \draw (0,1.5) coordinate (b_1) -- (1.8,0) coordinate (b_2);
 
     \coordinate (c) at (intersection of a_1--a_2 and b_1--b_2);
+
+		\filldraw[fill=green!20,draw=green!50!black] (0,0) -- (3mm,0mm) arc (0:42:3mm) -- cycle;
+		\node[right] at (0.25, 0.15) {$\theta$};
+		\node[above] at (0.35, 0.35) {$r$};
 		% right angle
-    \fill[red] (c) circle (2pt);
+    \fill[black] (c) circle (1pt);
+
 
 \end{tikzpicture}
-\caption{TODO: A line is representate as a point (b, m) in the parameter space according to \cref{lineeq}.}
+\caption{A line is represented as a point (b, m) in the parameter space or (r, $\theta$) in the Hough space according to \cref{lineeq,line_hesse}.}
 \label{fig_lineParamSpace}
 \end{figure}
 
