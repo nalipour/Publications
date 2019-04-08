@@ -1,5 +1,5 @@
 \appendix
-\section{Segmentation}
+\section{Segmentation}\label{sec_segmentation_app}
 
 In this chapter, the equations used for placing the wires in the DCH are give. The same naming convention is as well used for the description of the geometry in FCCSW\footnote{\href{https://github.com/HEP-FCC/FCCSW/tree/master/Detector/DetFCCeeIDEA}{https://github.com/HEP-FCC/FCCSW/tree/master/Detector/DetFCCeeIDEA}}. \cref{wires_dch} shows a wire rotated with a stereo angle of $\epsilon$. The angle $\alpha = 30^{\circ}$ remains constant throughout all the layers.
 
@@ -89,4 +89,12 @@ In this chapter, the equations used for placing the wires in the DCH are give. T
     -L/2
   \end{pmatrix}
   \label{eq_wend}
+\end{equation}
+
+The distance of the closest approach between a hit position $\vec{p}_{hit}$ and a wire is given by \cref{dist_closest_app}.
+
+\begin{equation}
+  d = {{|(\vec{w}_{end}-\vec{w}_{start}) \times
+    (\vec{w}_{start}-\vec{p}_{hit}) |} \over {|(\vec{w}_{end}-\vec{w}_{start})|}}
+    \label{dist_closest_app}
 \end{equation}
