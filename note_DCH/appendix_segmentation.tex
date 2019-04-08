@@ -71,14 +71,7 @@ In this chapter, the equations used for placing the wires in the DCH are give. T
     \label{eq_alpha}
 \end{equation}
 
-
-\begin{itemize}
-\item $\phi_{start}=\phi$
-\item $\phi_{end}=\phi+\alpha$
-  \begin{itemize}
-  \item If $\epsilon<0 \Rightarrow \alpha<0$
-  \end{itemize}
-\end{itemize}
+\cref{eq_wstart,eq_wend} provide the coordinates of the extremities of the wires depending on the azimuthal angle $\phi$ where $\left|\phi_{start}-\phi_{end}\right| = \alpha$.
 
 \begin{equation}
   \vec{w}_{start} = \begin{pmatrix}
@@ -86,6 +79,7 @@ In this chapter, the equations used for placing the wires in the DCH are give. T
     R \sin(\phi_{start}) \\
     L/2
   \end{pmatrix}
+  \label{eq_wstart}
 \end{equation}
 
 \begin{equation}
@@ -94,4 +88,5 @@ In this chapter, the equations used for placing the wires in the DCH are give. T
     R \sin(\phi_{end}) \\
     -L/2
   \end{pmatrix}
+  \label{eq_wend}
 \end{equation}
