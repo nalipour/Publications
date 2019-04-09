@@ -8,7 +8,8 @@ The Hough Transform~\cite{Hough:1959qva} has been investigated for the drift cha
 Initially invented for bubble chamber photographs~\cite{Hough:1959qva}, the Hough Transform is a feature extraction technique used in several fields such as image analysis, computer vision and digital image procession. It allows for the identification of lines as well as other shapes such as circles or ellipses.
 
 \subsubsection{Principle}
-The simplest case of Hough transform is detecting straight lines. In the parameter space, lines are represented as a point (b, m) with \cref{lineeq}.
+The detection of straight lines is the most simple case for the Hough transformation.
+In the parameter space, lines are represented as a point (b, m) with \cref{lineeq}.
 
 \begin{equation}
 	y = m \cdot x + b
@@ -62,11 +63,14 @@ With the presentation (b, m) in the parameter space, vertical lines pose problem
 					\caption{Hough space}
 					% \label{pointsLine2}
 			\end{subfigure}
-	\label{HTLine}
+
 	\caption{A line as represented in the parameter and the Hough space.}
+	\label{HTLine}
 \end{figure}
 
 \subsubsection{Identification of circles}
+
+To identify the circle using the Hough transformation, two consecutive methods are applied: first the circle is transformed to a line (using the conformal transformation) and the Hough transformation is applied to the line. This method is explained in this part.
 
 The track of a charged particle in a magnetic field follows a helicoidal trajectory. In the xy-plane, the hits follow a circular trajectory as described with \cref{circleEq} where $(a, b)$ represent the center of the circle and $R$ the radius of the circle.
 
@@ -120,6 +124,7 @@ Finally, the center of the circle is extracted from the Hough transformation usi
 \label{Eq_HT_centers}
 \end{equation}
 
+\cref{HTcircle} illustrates the conformal and Hough transformations as applied to circles. The local maxima in the Hough space, represents the circles in the xy-plane and their radius can be easily extracted using \cref{Eq_R_rho}.
 
 \begin{figure}[ht]
 	\centering
@@ -149,7 +154,7 @@ The Hough transformation is a periodic function and the points in the $\rho-\the
 \subsection{Identification of single tracks}
 The detection of single particle tracks simulated with FCCSW has been investigated.
 
-Simulations using a $2.4\,\gev$ muon particle gun have been done. In a 2~T magnetic field, the bending radius is 4~m. An event is displace in \cref{fig_pgun_3d}.
+Simulations using a $2.4\,\gev$ muon particle gun have been done. In a 2~T magnetic field, the bending radius is 4~m. An event is displayed in \cref{fig_pgun_3d}.
 
 \begin{figure}[ht]
 	\centering
@@ -167,7 +172,7 @@ Simulations using a $2.4\,\gev$ muon particle gun have been done. In a 2~T magne
 	\label{fig_pgun_CT}
 \end{figure}
 
-Finally the Hough transformation is applied to the conformal transform (\cref{fig_pgun_CT}) and the result is shown in \cref{fig_pgun_HT}. In the Hough space, all the hits corresponding to the same track are represented by a local maximum. Therefore, tracks are found by searching for local maxima in the Hough space. Also, the location of the maxima gives the information on the bending radius of the track and its $\phi$-direction.
+Finally the Hough transformation is applied to the conformal transform (\cref{fig_pgun_CT}) and the result is shown in \cref{fig_pgun_HT}. In the Hough space, all the hits corresponding to the same track are represented by a local maximum. Therefore, tracks are found by searching for local maxima in the Hough space. Also, the location of the maxima gives the information on the curvature of the track.
 
 \begin{figure}[ht]
 	\centering
@@ -179,12 +184,12 @@ Finally the Hough transformation is applied to the conformal transform (\cref{fi
 \subsection{Finding local maxima in the Hough space}
 As seen in the previous chapter, the pattern recognition is performed by looking for local maxima in the Hough space. Since the drift chamber has 112 layers, a threshold is applied to select bins in the Hough space which have more than 112 entries. And to increase the accuracy, the neighboring bins around the bins with maximum hits are also investigated and they are clustered together. \cref{fig_pgun_HT_maxima} shows the bins with at least 112 hits and also one cluster is found. The bending radius of the $2.4\,\gev$ is correctly given by the Hough transformation.
 
-The DBSCAN clustering algorithm\footnote{https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html} provided by the python library scikit-learn is used with a distance metric. With a distance of $\sqrt{2} \times$~bin size, the clusters' shapes are illustrated in \cref{fig_clushape}.
+The DBSCAN clustering algorithm\footnote{https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html} provided by the python library scikit-learn is used with a distance metric. With a distance of $\sqrt{2} \times$~bin size, the clusters' shapes are as illustrated in \cref{fig_clushape}.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.6\textwidth]{figures/HT_pgun_maxima.pdf}%
-	\caption{Finding the maxima in the Hough space of \cref{fig_pgun_HT}. The bins with more than 112 hits are highlighted and a clustering algorithm is also run.}
+	\caption{Finding the maxima in the Hough space of \cref{fig_pgun_HT}. The bins with more than 112 hits are highlighted and the clustering algorithm has found one cluster as shown in green.}
 	\label{fig_pgun_HT_maxima}
 \end{figure}
 
@@ -216,14 +221,15 @@ The DBSCAN clustering algorithm\footnote{https://scikit-learn.org/stable/modules
       \end{tikzpicture}
 		\end{subfigure}
 		\end{framed}
-	\label{fig_clushape}
+
 	\caption{Configurations where the shapes are considered as a cluster with a distance criterion of $\sqrt{2}$.}
+	\label{fig_clushape}
 \end{figure}
 
 
 \subsection{Incoherent $e^+e^-$ background pairs}
 
-\cref{fig_bcg} shows the simulated hits in the drift chamber due to incoherent $e^+e^-$ background pairs.
+\cref{fig_bcg} shows the simulated hits in the drift chamber due to incoherent $e^+e^-$ background pairs as described in \cref{sec_bacgkground}.
 
 \begin{figure}[ht]
 	\centering
@@ -255,8 +261,8 @@ The conformal transformation corresponding to the hits as shown in \cref{fig_bcg
 					\includegraphics[width=\textwidth]{figures/HT_background_maxima.pdf}
 					\caption{}
 			\end{subfigure}
-	\label{fig_bcg_HT}
 	\caption{(a) shows the $e^+e^-$ background hits as represented in the Hough space. (b) shows the clusters found by the clustering algorithm.}
+	\label{fig_bcg_HT}
 \end{figure}
 
 
@@ -285,6 +291,6 @@ The Hough transformation for such a complex event is shown in \cref{HTZdd}. As s
 \begin{figure}[ht]
 	\centering
   \includegraphics[width=0.8\textwidth]{figures/HT_Zdd.pdf}
-	\label{HTZdd}
 	\caption{The Hough transformation corresponding to the Z $\rightarrow$ d\={d} decay.}
+	\label{HTZdd}
 \end{figure}
