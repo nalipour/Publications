@@ -157,7 +157,7 @@
     \end{tabular}
     \hfill
     \begin{tabular}[b]{r@{}}
-      { \normalsize\@documentlabel}\\[1.5ex]
+      % { \normalsize\@documentlabel}\\[1.5ex]
       {\normalsize\@date}\\
       {\normalsize\texttt{\@email}}\\
     \end{tabular}
@@ -168,10 +168,10 @@
     \vskip\baselineskip
     {\large\raggedright\hyphenpenalty=10000\@author\par}
     \vskip\baselineskip
-    \footnotesize Keywords:
-    \parbox[t]{0.85\textwidth}{\raggedright\hyphenpenalty=10000
-      \footnotesize\@keywords
-      }
+    % \footnotesize Keywords:
+    % \parbox[t]{0.85\textwidth}{\raggedright\hyphenpenalty=10000
+    %   \footnotesize\@keywords
+    %   }
     \hfill\par
     }
   \fancyline
